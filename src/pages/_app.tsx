@@ -8,6 +8,8 @@ import createEmotionCache from "styles/createEmotionCache";
 import { Layout } from "components/layout/layout";
 import { useRouter } from "next/router";
 
+import "styles/globals.css";
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 

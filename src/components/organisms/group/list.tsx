@@ -7,32 +7,43 @@ import Link from "next/link";
 
 export const GroupList: FC = () => {
   return (
-    <Grid container rowSpacing={5} columnSpacing={3}>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((x) => (
-        <Grid key={x}>
-          <GroupCardContainer title={"テスト" + x} description={"あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"} />
-        </Grid>
-      ))}
+    <>
+      <Grid container rowSpacing={5} columnSpacing={3}>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((x) => (
+          <Grid key={x}>
+            <GroupCardContainer
+              title={"テスト" + x}
+              description={
+                "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+              }
+            />
+          </Grid>
+        ))}
 
-      {/* カードの最後に表示する、グループ作成画面に遷移するカード */}
-      <Grid>
-        <Card
-          sx={{ width: "20rem", height: "12rem", borderColor: "#7d7d7d" }}
-          variant="outlined"
-        >
-          <CardActionArea
-            sx={{ height: "100%" }}
-            LinkComponent={Link}
-            href="/group/add"
+        {/* カードの最後に表示する、グループ作成画面に遷移するカード */}
+        <Grid>
+          <Card
+            sx={{ width: "20rem", height: "12rem", borderColor: "#7d7d7d" }}
+            variant="outlined"
           >
-            <CardContent
-              sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+            <CardActionArea
+              sx={{ height: "100%" }}
+              LinkComponent={Link}
+              href="/group/add"
             >
-              <AddIcon fontSize="large" sx={{ margin: "auto" }} />
-            </CardContent>
-          </CardActionArea>
-        </Card>
+              <CardContent
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <AddIcon fontSize="large" sx={{ margin: "auto" }} />
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };

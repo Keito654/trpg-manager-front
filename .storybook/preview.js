@@ -1,6 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 import { red } from "@mui/material/colors";
+import "../src/styles/globals.css";
 
 const theme = createTheme({
   palette: {

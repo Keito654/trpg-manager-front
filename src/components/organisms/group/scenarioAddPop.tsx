@@ -1,42 +1,18 @@
-import { Popover, Box, TextField } from "@mui/material";
+import { Box, TextField, Dialog } from "@mui/material";
 import { FC } from "react";
 import { LabelText } from "../../atoms/labelText";
 import Image from "next/image";
 import iguanaImage from "../../../../public/contemplative-reptile.jpg";
 
 type Props = {
-  anchorEl: HTMLButtonElement | null;
+  open: boolean;
   handleClose: () => void;
 };
 
-export const ScenarioAddPop: FC<Props> = ({ anchorEl, handleClose }) => {
-  const open = Boolean(anchorEl);
-
+export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
   return (
-    <Popover
-      open={open}
-      anchorEl={anchorEl}
-      onClose={handleClose}
-      anchorPosition={{ top: 400, left: 400 }}
-      anchorReference="anchorPosition"
-      anchorOrigin={{
-        vertical: "center",
-        horizontal: "center",
-      }}
-      transformOrigin={{
-        vertical: "center",
-        horizontal: "center",
-      }}
-    >
-      <Box
-        sx={{
-          padding: 3,
-          "@media screen and (min-widht: 1200px)": {
-            width: "1000px",
-          },
-          width: "500px",
-        }}
-      >
+    <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth={true}>
+      <Box className="p-5">
         <LabelText>シナリオ</LabelText>
         <TextField
           variant="outlined"
@@ -82,6 +58,6 @@ export const ScenarioAddPop: FC<Props> = ({ anchorEl, handleClose }) => {
           sx={{ mb: 4 }}
         />
       </Box>
-    </Popover>
+    </Dialog>
   );
 };

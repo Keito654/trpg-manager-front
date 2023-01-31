@@ -1,4 +1,4 @@
-import { Popover, Box, Typography, Link } from "@mui/material";
+import { Box, Typography, Link, Dialog } from "@mui/material";
 import { FC } from "react";
 import Image from "next/image";
 import iguanaImage from "../../../../public/contemplative-reptile.jpg";
@@ -12,30 +12,8 @@ export const ScenarioDetailPop: FC<Props> = ({ anchorEl, handleClose }) => {
   const open = Boolean(anchorEl);
 
   return (
-    <Popover
-      open={open}
-      anchorEl={anchorEl}
-      onClose={handleClose}
-      anchorPosition={{ top: 400, left: 400 }}
-      anchorReference="anchorPosition"
-      anchorOrigin={{
-        vertical: "center",
-        horizontal: "center",
-      }}
-      transformOrigin={{
-        vertical: "center",
-        horizontal: "center",
-      }}
-    >
-      <Box
-        sx={{
-          padding: 3,
-          "@media screen and (min-widht: 1200px)": {
-            width: "1000px",
-          },
-          width: "500px",
-        }}
-      >
+    <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth={true}>
+      <Box className="p-5">
         <Typography variant="h5" sx={{ marginBottom: 3 }}>
           シナリオタイトル
         </Typography>
@@ -71,6 +49,6 @@ export const ScenarioDetailPop: FC<Props> = ({ anchorEl, handleClose }) => {
         </Typography>
         <Typography>山田、山田、山田</Typography>
       </Box>
-    </Popover>
+    </Dialog>
   );
 };
