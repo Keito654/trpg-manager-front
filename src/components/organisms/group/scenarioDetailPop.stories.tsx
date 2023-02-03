@@ -11,6 +11,6 @@ const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 export const ScenarioDetailPop = Template.bind({});
 
 ScenarioDetailPop.args = {
-  anchorEl: document.createElement("button"),
+  open: true,
   handleClose: () => {},
 };

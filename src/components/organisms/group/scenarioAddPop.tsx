@@ -1,4 +1,4 @@
-import { Box, TextField, Dialog } from "@mui/material";
+import { Box, TextField, Dialog, Button } from "@mui/material";
 import { FC } from "react";
 import { LabelText } from "../../atoms/labelText";
 import Image from "next/image";
@@ -13,49 +13,45 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth={true}>
       <Box className="p-5">
-        <LabelText>シナリオ</LabelText>
+        <LabelText>シナリオタイトル</LabelText>
         <TextField
           variant="outlined"
           placeholder="50文字まで"
           fullWidth
-          sx={{ mb: 4 }}
+          className="mb-8"
         />
         <LabelText>画像</LabelText>
-        <Box
-          sx={{
-            mb: 4,
-            position: "relative",
-            height: "8rem",
-            backgroundColor: "#909090",
-          }}
-        >
-          <Image
-            src={iguanaImage}
-            alt="aaa"
-            fill
-            style={{ objectFit: "contain" }}
-          />
+        <Box className="mb-8 md:flex">
+          <Box className="relative h-32 bg-gray-400 mb-3 md:mb-0 md:w-9/12">
+            <Image
+              src={iguanaImage}
+              alt="aaa"
+              fill
+              style={{ objectFit: "contain" }}
+            />
+          </Box>
+          <Box className="md:w-3/12 md:text-center md:flex md:justify-center md:items-center">
+            <Button variant="contained" component="label">
+              画像をアップロード
+              <input hidden accept="image/*" multiple type="file" />
+            </Button>
+          </Box>
         </Box>
         <LabelText>URL</LabelText>
-        <TextField
-          variant="outlined"
-          placeholder="50文字まで"
-          fullWidth
-          sx={{ mb: 4 }}
-        />
+        <TextField variant="outlined" fullWidth className="mb-8" />
         <LabelText>説明</LabelText>
         <TextField
           variant="outlined"
-          placeholder="50文字まで"
+          placeholder="100文字まで"
           fullWidth
-          sx={{ mb: 4 }}
+          className="mb-8"
         />
         <LabelText>読んだ人</LabelText>
         <TextField
           variant="outlined"
           placeholder="50文字まで"
           fullWidth
-          sx={{ mb: 4 }}
+          className="mb-8"
         />
       </Box>
     </Dialog>
