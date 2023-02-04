@@ -1,4 +1,4 @@
-import { Box, Typography, Link, Dialog } from "@mui/material";
+import { Box, Typography, Link, Dialog, Button } from "@mui/material";
 import { FC } from "react";
 import Image from "next/image";
 import iguanaImage from "../../../../public/contemplative-reptile.jpg";
@@ -16,7 +16,7 @@ export const ScenarioDetailPop: FC<Props> = ({ open, handleClose }) => {
           シナリオタイトル
         </Typography>
         <Box className="md:flex md:gap-5">
-          <Box className="relative h-32 mb-5 md:mb-0 md:h-auto md:w-6/12">
+          <Box className="relative mb-5 h-32 md:mb-0 md:h-auto md:w-6/12">
             <Image
               src={iguanaImage}
               alt="aaa"
@@ -42,6 +42,14 @@ export const ScenarioDetailPop: FC<Props> = ({ open, handleClose }) => {
             </Typography>
             <Typography>山田、山田、山田</Typography>
           </Box>
+        </Box>
+        <Box className="mt-16 flex justify-evenly">
+          <Button variant="contained" color="secondary">
+            完了
+          </Button>
+          <Button variant="contained" color="cancel">
+            キャンセル
+          </Button>
         </Box>
       </Box>
     </Dialog>

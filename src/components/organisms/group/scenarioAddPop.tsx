@@ -22,7 +22,7 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
         />
         <LabelText>画像</LabelText>
         <Box className="mb-8 md:flex">
-          <Box className="relative h-32 bg-gray-400 mb-3 md:mb-0 md:w-9/12">
+          <Box className="relative mb-3 h-32 bg-gray-400 md:mb-0 md:w-9/12">
             <Image
               src={iguanaImage}
               alt="aaa"
@@ -30,7 +30,7 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
               style={{ objectFit: "contain" }}
             />
           </Box>
-          <Box className="md:w-3/12 md:text-center md:flex md:justify-center md:items-center">
+          <Box className="md:flex md:w-3/12 md:items-center md:justify-center md:text-center">
             <Button variant="contained" component="label">
               画像をアップロード
               <input hidden accept="image/*" multiple type="file" />
@@ -53,6 +53,14 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
           fullWidth
           className="mb-8"
         />
+        <Box className="mt-8 flex justify-evenly">
+          <Button variant="contained" color="secondary">
+            完了
+          </Button>
+          <Button variant="contained" color="cancel">
+            キャンセル
+          </Button>
+        </Box>
       </Box>
     </Dialog>
   );
