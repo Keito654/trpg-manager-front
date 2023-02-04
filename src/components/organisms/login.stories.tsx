@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { GroupAdd as Pop } from "./add";
+import { Login as Pop } from "./login";
 
 export default {
   title: "Page",
@@ -8,8 +8,6 @@ export default {
 
 const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
-export const GroupAdd = Template.bind({});
+export const Login = Template.bind({});
 
-GroupAdd.args = {
-  urlForJoin: "http://example.com",
-};
+Login.args = {};

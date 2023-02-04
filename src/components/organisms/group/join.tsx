@@ -1,8 +1,9 @@
 import { Box, Button, Typography } from "@mui/material";
 import Link from "next/link";
 import { FC } from "react";
+import { GroupModel } from "types/veiwModels";
 
-export const GroupJoin: FC = () => {
+export const GroupJoin: FC<GroupModel> = ({ groupTitle, description, creator }) => {
   return (
     <>
       <Typography>以下のグループに招待されています。参加しますか？</Typography>
@@ -15,10 +16,10 @@ export const GroupJoin: FC = () => {
         }}
       >
         <Typography sx={{ mb: 2 }} variant="h6">
-          グループネーム
+          {groupTitle}
         </Typography>
-        <Typography sx={{ mb: 2 }}>説明</Typography>
-        <Typography>作成者：あああああ</Typography>
+        <Typography sx={{ mb: 2 }}>{description}</Typography>
+        <Typography>{`作成者：${creator}`}</Typography>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-evenly", mt: 10 }}>
         <Button variant="contained" color="secondary">

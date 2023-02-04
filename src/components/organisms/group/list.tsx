@@ -4,18 +4,21 @@ import AddIcon from "@mui/icons-material/Add";
 import React, { FC } from "react";
 import { GroupCardContainer } from "container/atoms/groupCard";
 import Link from "next/link";
+import { GroupModel } from "types/veiwModels";
 
-export const GroupList: FC = () => {
+type Props = {
+  groupList: Pick<GroupModel, "groupTitle" | "description">[];
+};
+
+export const GroupList: FC<Props> = ({ groupList }) => {
   return (
     <>
       <Grid container rowSpacing={5} columnSpacing={3}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((x) => (
-          <Grid key={x}>
+        {groupList.map((x, i) => (
+          <Grid key={i}>
             <GroupCardContainer
-              title={"テスト" + x}
-              description={
-                "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
-              }
+              title={x.groupTitle}
+              description={x.description}
             />
           </Grid>
         ))}

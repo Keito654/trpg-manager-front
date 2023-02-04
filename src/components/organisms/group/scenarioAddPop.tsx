@@ -2,7 +2,7 @@ import { Box, TextField, Dialog, Button } from "@mui/material";
 import { FC } from "react";
 import { LabelText } from "../../atoms/labelText";
 import Image from "next/image";
-import iguanaImage from "../../../../public/contemplative-reptile.jpg";
+import image from "../../../../public/no-image.jpg";
 
 type Props = {
   open: boolean;
@@ -24,7 +24,7 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
         <Box className="mb-8 md:flex">
           <Box className="relative mb-3 h-32 bg-gray-400 md:mb-0 md:w-9/12">
             <Image
-              src={iguanaImage}
+              src={image}
               alt="aaa"
               fill
               style={{ objectFit: "contain" }}

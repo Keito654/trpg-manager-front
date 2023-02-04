@@ -23,15 +23,6 @@ export const Layout: FC<Props> = ({ children, path }) => {
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 1 }}
-              >
-                <MenuIcon />
-              </IconButton>
               <Typography
                 variant="h6"
                 component="div"

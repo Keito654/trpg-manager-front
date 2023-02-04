@@ -1,15 +1,13 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { GroupAdd as Pop } from "./add";
+import { GoogleLoginButton as Pop } from "./googleLoginButton";
 
 export default {
-  title: "Page",
+  title: "Button",
   component: Pop,
 } as ComponentMeta<typeof Pop>;
 
 const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
-export const GroupAdd = Template.bind({});
+export const GoogleLoginButton = Template.bind({});
 
-GroupAdd.args = {
-  urlForJoin: "http://example.com",
-};
+GoogleLoginButton.args = {};

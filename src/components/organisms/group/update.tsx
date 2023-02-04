@@ -3,6 +3,7 @@ import { CopyButton } from "components/atoms/copyButton";
 import { LabelText } from "components/atoms/labelText";
 import Link from "next/link";
 import { FC } from "react";
+import { GroupModel } from "types/veiwModels";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
@@ -10,7 +11,11 @@ declare module "@mui/material/Button" {
   }
 }
 
-export const GroupUpdate: FC = () => {
+export const GroupUpdate: FC<GroupModel> = ({
+  groupTitle,
+  description,
+  urlForJoin,
+}) => {
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "column", rowGap: 8, mb: 10 }}>
@@ -20,7 +25,7 @@ export const GroupUpdate: FC = () => {
             variant="outlined"
             placeholder="50文字まで"
             fullWidth
-            defaultValue={"aaaaa"}
+            defaultValue={groupTitle}
           />
         </Box>
         <Box>
@@ -30,13 +35,13 @@ export const GroupUpdate: FC = () => {
             rows={4}
             placeholder="100文字まで"
             fullWidth
-            defaultValue={"bbbbbb"}
+            defaultValue={description}
           />
         </Box>
         <Box>
           <LabelText>共有URL</LabelText>
           <TextField
-            defaultValue={"aaaaaaaaaaa"}
+            defaultValue={urlForJoin}
             fullWidth
             InputProps={{ readOnly: true, endAdornment: <CopyButton /> }}
           />

@@ -4,8 +4,15 @@ import { SearchButton } from "components/atoms/searchButton";
 import { FC } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import AddIcon from "@mui/icons-material/Add";
+import { ScenarioModel } from "types/veiwModels";
+import noImage from "../../../../public/no-image.jpg";
 
-export const Scenario: FC = () => {
+
+type Props = {
+  scenarioList: Pick<ScenarioModel, "scenarioTitle" | "image">[];
+};
+
+export const Scenario: FC<Props> = ({ scenarioList }) => {
   return (
     <>
       <TextField
@@ -15,13 +22,9 @@ export const Scenario: FC = () => {
         sx={{ mb: 3 }}
       />
       <Grid container rowSpacing={5} columnSpacing={3}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((x) => (
-          <Grid key={x}>
-            <ScenarioCard
-              title={
-                "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
-              }
-            />
+        {scenarioList.map((x, i) => (
+          <Grid key={i}>
+            <ScenarioCard title={x.scenarioTitle} image={x.image ?? noImage} />
           </Grid>
         ))}
       </Grid>

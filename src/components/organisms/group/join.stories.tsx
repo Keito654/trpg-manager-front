@@ -10,4 +10,8 @@ const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
 export const GroupJoin = Template.bind({});
 
-GroupJoin.args = {};
+GroupJoin.args = {
+  groupTitle: "テストグループ１",
+  description: "これはテストのためのグループです。",
+  creator: "山田",
+};

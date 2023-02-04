@@ -6,14 +6,15 @@ import {
   CardActionArea,
 } from "@mui/material";
 import { FC } from "react";
-import Image from "next/image";
-import iguana from "../../../public/contemplative-reptile.jpg";
+import Image, { StaticImageData } from "next/image";
+import noImage from "../../../public/no-image.jpg";
 
 type Props = {
   title: string;
+  image: StaticImageData;
 };
 
-export const ScenarioCard: FC<Props> = ({ title }) => {
+export const ScenarioCard: FC<Props> = ({ title, image }) => {
   return (
     <div>
       <Card
@@ -26,11 +27,11 @@ export const ScenarioCard: FC<Props> = ({ title }) => {
         <CardActionArea>
           <CardMedia
             sx={{ height: "8rem", position: "relative" }}
-            title="green iguana"
+            title="scenario image"
           >
             <Image
-              src={iguana}
-              alt="iguana"
+              src={image ?? noImage}
+              alt="scenario image"
               fill
               style={{ objectFit: "cover" }}
             />
