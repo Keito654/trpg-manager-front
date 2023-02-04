@@ -42,6 +42,8 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
         <LabelText>説明</LabelText>
         <TextField
           variant="outlined"
+          multiline
+          rows={4}
           placeholder="100文字まで"
           fullWidth
           className="mb-8"
