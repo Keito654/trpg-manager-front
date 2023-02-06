@@ -9,27 +9,16 @@ import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
 import noImage from "../../../../public/no-image.jpg";
 import { MenuForUpdateAndDelete } from "components/atoms/menu/menuForUpdateAndDelete";
-
-type ContextMenu = {
-  mouseX: number;
-  mouseY: number;
-} | null;
+import { useClickContextMenu } from "lib/hooks/useClickContextMenu";
 
 type Props = {
   title: string;
   image: StaticImageData;
-  contextMenu: ContextMenu;
-  handleRightClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  handleClose: () => void;
 };
 
-export const ScenarioCard: FC<Props> = ({
-  title,
-  image,
-  contextMenu,
-  handleRightClick,
-  handleClose,
-}) => {
+export const ScenarioCard: FC<Props> = ({ title, image }) => {
+  const { contextMenu, handleRightClick, handleClose } = useClickContextMenu();
+
   return (
     <>
       <Card

@@ -1,27 +1,16 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { MenuForUpdateAndDelete } from "components/atoms/menu/menuForUpdateAndDelete";
+import { useClickContextMenu } from "lib/hooks/useClickContextMenu";
 import { FC } from "react";
-
-type ContextMenu = {
-  mouseX: number;
-  mouseY: number;
-} | null;
 
 type Props = {
   title: string;
   description: string | undefined;
-  contextMenu: ContextMenu;
-  handleRightClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  handleClose: () => void;
 };
 
-export const GroupCard: FC<Props> = ({
-  title,
-  description,
-  contextMenu,
-  handleRightClick,
-  handleClose,
-}) => {
+export const GroupCard: FC<Props> = ({ title, description }) => {
+  const { contextMenu, handleRightClick, handleClose } = useClickContextMenu();
+
   return (
     <>
       <Card
