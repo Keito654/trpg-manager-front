@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { MenuForAddAndCopy as Pop } from "./menuForAddAndCopy";
+import { MenuForUpdateAndDelete as Pop } from "../../atoms/menu/menuForUpdateAndDelete";
 
 export default {
   title: "Menu",
@@ -8,8 +8,8 @@ export default {
 
 const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
-export const MenuForAddAndCopy = Template.bind({});
+export const MenuForUpdateAndDelete = Template.bind({});
 
-MenuForAddAndCopy.args = {
-  open: true,
+MenuForUpdateAndDelete.args = {
+  contextMenu: {mouseX: 3, mouseY: 3}
 };

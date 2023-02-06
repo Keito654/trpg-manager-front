@@ -5,7 +5,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { ScenarioModel } from "types/veiwModels";
 import noImage from "../../../../public/no-image.jpg";
 import { ScenarioCard } from "components/molecules/card/scenarioCard";
-import { ScenarioAddButton } from "components/molecules/scenarioAddButton";
+import { ScenarioAddButton } from "components/molecules/menuButton/scenarioAddButton";
 
 type Props = {
   scenarioList: Pick<ScenarioModel, "scenarioTitle" | "image">[];

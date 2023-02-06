@@ -10,4 +10,6 @@ const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
 export const DeleteDialog = Template.bind({});
 
-DeleteDialog.args = {};
+DeleteDialog.args = {
+  open: true,
+};

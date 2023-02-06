@@ -9,7 +9,8 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import { DeleteDialog } from "../dialog/deleteDialog";
 
 type ContextMenu = {
   mouseX: number;
@@ -25,34 +26,47 @@ export const MenuForUpdateAndDelete: FC<Props> = ({
   contextMenu,
   handleClose,
 }) => {
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleDeleteClick = () => {
+    setIsDeleting(true);
+  };
+
+  const handleDeleteClose = () => {
+    setIsDeleting(false);
+  };
+
   return (
-    <Menu
-      open={contextMenu !== null}
-      onClose={handleClose}
-      anchorReference="anchorPosition"
-      anchorPosition={
-        contextMenu !== null
-          ? { top: contextMenu.mouseY, left: contextMenu.mouseX }
-          : undefined
-      }
-      onContextMenu={(event: React.MouseEvent) => {
-        event.preventDefault();
-        handleClose();
-      }}
-    >
-      <MenuItem>
-        <ListItemIcon>
-          <EditIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>編集</ListItemText>
-      </MenuItem>
-      <Divider />
-      <MenuItem>
-        <ListItemIcon>
-          <DeleteIcon fontSize="small" className="text-red-600" />
-        </ListItemIcon>
-        <ListItemText className="text-red-600">削除</ListItemText>
-      </MenuItem>
-    </Menu>
+    <>
+      <Menu
+        open={contextMenu !== null}
+        onClose={handleClose}
+        anchorReference="anchorPosition"
+        anchorPosition={
+          contextMenu !== null
+            ? { top: contextMenu.mouseY, left: contextMenu.mouseX }
+            : undefined
+        }
+        onContextMenu={(event: React.MouseEvent) => {
+          event.preventDefault();
+          handleClose();
+        }}
+      >
+        <MenuItem>
+          <ListItemIcon>
+            <EditIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>編集</ListItemText>
+        </MenuItem>
+        <Divider />
+        <MenuItem onClick={handleDeleteClick}>
+          <ListItemIcon>
+            <DeleteIcon fontSize="small" className="text-red-600" />
+          </ListItemIcon>
+          <ListItemText className="text-red-600">削除</ListItemText>
+        </MenuItem>
+      </Menu>
+      <DeleteDialog open={isDeleting} handleClose={handleDeleteClose} />
+    </>
   );
 };
