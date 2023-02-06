@@ -1,18 +1,16 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  Menu,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
+import { MenuForUpdateAndDelete } from "components/atoms/menu/menuForUpdateAndDelete";
 import { FC } from "react";
+
+type ContextMenu = {
+  mouseX: number;
+  mouseY: number;
+} | null;
 
 type Props = {
   title: string;
   description: string | undefined;
-  anchorEl: null | HTMLElement;
-  open: boolean;
+  contextMenu: ContextMenu;
   handleRightClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   handleClose: () => void;
 };
@@ -20,13 +18,12 @@ type Props = {
 export const GroupCard: FC<Props> = ({
   title,
   description,
-  anchorEl,
-  open,
+  contextMenu,
   handleRightClick,
   handleClose,
 }) => {
   return (
-    <div>
+    <>
       <Card
         sx={{ width: "20rem", height: "12rem", borderColor: "#7d7d7d" }}
         variant="outlined"
@@ -56,25 +53,10 @@ export const GroupCard: FC<Props> = ({
           </CardContent>
         </CardActionArea>
       </Card>
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-        anchorOrigin={{
-          vertical: "center",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-      >
-        <MenuItem>更新</MenuItem>
-        <MenuItem>削除</MenuItem>
-      </Menu>
-    </div>
+      <MenuForUpdateAndDelete
+        contextMenu={contextMenu}
+        handleClose={handleClose}
+      />
+    </>
   );
 };

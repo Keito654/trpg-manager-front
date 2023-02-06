@@ -10,4 +10,6 @@ const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
 export const MenuForUpdateAndDelete = Template.bind({});
 
-MenuForUpdateAndDelete.args = {};
+MenuForUpdateAndDelete.args = {
+  contextMenu: {mouseX: 3, mouseY: 3}
+};

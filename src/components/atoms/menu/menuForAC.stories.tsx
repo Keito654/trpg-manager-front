@@ -1,16 +1,13 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { GroupCard as Pop } from "./groupCard";
+import { MenuForAddAndCopy as Pop } from "./menuForAddAndCopy";
 
 export default {
-  title: "Card",
+  title: "Menu",
   component: Pop,
 } as ComponentMeta<typeof Pop>;
 
 const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
-export const GroupCard = Template.bind({});
+export const MenuForAddAndCopy = Template.bind({});
 
-GroupCard.args = {
-  title: "タイトル",
-  description: "説明",
-};
+MenuForAddAndCopy.args = {};

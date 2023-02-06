@@ -8,15 +8,30 @@ import {
 import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
 import noImage from "../../../../public/no-image.jpg";
+import { MenuForUpdateAndDelete } from "components/atoms/menu/menuForUpdateAndDelete";
+
+type ContextMenu = {
+  mouseX: number;
+  mouseY: number;
+} | null;
 
 type Props = {
   title: string;
   image: StaticImageData;
+  contextMenu: ContextMenu;
+  handleRightClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleClose: () => void;
 };
 
-export const ScenarioCard: FC<Props> = ({ title, image }) => {
+export const ScenarioCard: FC<Props> = ({
+  title,
+  image,
+  contextMenu,
+  handleRightClick,
+  handleClose,
+}) => {
   return (
-    <div>
+    <>
       <Card
         variant="outlined"
         sx={{
@@ -24,7 +39,7 @@ export const ScenarioCard: FC<Props> = ({ title, image }) => {
           borderColor: "#7d7d7d",
         }}
       >
-        <CardActionArea>
+        <CardActionArea onContextMenu={handleRightClick}>
           <CardMedia
             sx={{ height: "8rem", position: "relative" }}
             title="scenario image"
@@ -53,6 +68,10 @@ export const ScenarioCard: FC<Props> = ({ title, image }) => {
           </CardContent>
         </CardActionArea>
       </Card>
-    </div>
+      <MenuForUpdateAndDelete
+        contextMenu={contextMenu}
+        handleClose={handleClose}
+      />
+    </>
   );
 };

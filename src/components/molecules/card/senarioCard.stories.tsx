@@ -12,4 +12,5 @@ export const ScenarioCard = Template.bind({});
 
 ScenarioCard.args = {
   title: "タイトル１",
+  contextMenu: null,
 };
