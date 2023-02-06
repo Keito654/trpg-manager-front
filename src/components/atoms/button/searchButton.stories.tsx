@@ -8,6 +8,8 @@ export default {
 
 const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
-export const SearchButton = Template.bind({});
+export const ScenarioButton = Template.bind({});
 
-SearchButton.args = {};
+ScenarioButton.args = {
+  title: "タイトル",
+};

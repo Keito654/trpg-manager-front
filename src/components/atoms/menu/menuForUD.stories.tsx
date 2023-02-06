@@ -1,15 +1,13 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ScenarioCard as Pop } from "./scenarioCard";
+import { MenuForUpdateAndDelete as Pop } from "./menuForUpdateAndDelete";
 
 export default {
-  title: "Card",
+  title: "Menu",
   component: Pop,
 } as ComponentMeta<typeof Pop>;
 
 const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
-export const ScenarioCard = Template.bind({});
+export const MenuForUpdateAndDelete = Template.bind({});
 
-ScenarioCard.args = {
-  title: "タイトル",
-};
+MenuForUpdateAndDelete.args = {};

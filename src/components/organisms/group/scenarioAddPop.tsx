@@ -1,6 +1,6 @@
 import { Box, TextField, Dialog, Button } from "@mui/material";
 import { FC } from "react";
-import { LabelText } from "../../atoms/labelText";
+import { LabelText } from "components/atoms/labelText";
 import Image from "next/image";
 import image from "../../../../public/no-image.jpg";
 

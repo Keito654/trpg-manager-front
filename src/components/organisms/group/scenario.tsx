@@ -1,6 +1,6 @@
 import { IconButton, TextField } from "@mui/material";
-import { ScenarioCard } from "components/atoms/scenarioCard";
-import { SearchButton } from "components/atoms/searchButton";
+import { ScenarioCard } from "components/atoms/card/scenarioCard";
+import { SearchButton } from "components/atoms/button/searchButton";
 import { FC } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import AddIcon from "@mui/icons-material/Add";

@@ -1,5 +1,5 @@
 import { Box, Button, TextField } from "@mui/material";
-import { CopyButton } from "components/atoms/copyButton";
+import { CopyButton } from "components/atoms/button/copyButton";
 import { LabelText } from "components/atoms/labelText";
 import Link from "next/link";
 import { FC } from "react";

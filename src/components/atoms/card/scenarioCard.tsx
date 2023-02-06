@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
-import noImage from "../../../public/no-image.jpg";
+import noImage from "../../../../public/no-image.jpg";
 
 type Props = {
   title: string;

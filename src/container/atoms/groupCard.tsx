@@ -1,4 +1,4 @@
-import { GroupCard } from "components/atoms/groupCard";
+import { GroupCard } from "components/atoms/card/groupCard";
 import { FC, useState } from "react";
 
 type Props = {
