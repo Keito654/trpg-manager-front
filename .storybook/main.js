@@ -31,6 +31,7 @@ module.exports = {
           ...config.resolve.alias,
           "@emotion/core": toPath("node_modules/@emotion/react"),
           "emotion-theming": toPath("node_modules/@emotion/react"),
+          "@public": path.resolve(__dirname, "../public"),
         },
       },
     };

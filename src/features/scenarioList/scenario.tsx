@@ -3,9 +3,10 @@ import { SearchButton } from "components/elements/button/searchButton";
 import { FC } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import { ScenarioModel } from "types/veiwModels";
-import noImage from "../../../../public/no-image.jpg";
 import { ScenarioCard } from "./scenarioCard";
 import { ScenarioAddButton } from "./scenarioAddButton";
+import noImage from "@public/no-image.jpg";
+
 
 type Props = {
   scenarioList: Pick<ScenarioModel, "scenarioTitle" | "image">[];
@@ -23,7 +24,7 @@ export const Scenario: FC<Props> = ({ scenarioList }) => {
       <Grid container rowSpacing={5} columnSpacing={3}>
         {scenarioList.map((x, i) => (
           <Grid key={i}>
-            <ScenarioCard title={x.scenarioTitle} image={x.image ?? noImage} />
+            <ScenarioCard title={x.scenarioTitle} image={noImage} />
           </Grid>
         ))}
       </Grid>
