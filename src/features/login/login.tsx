@@ -1,4 +1,4 @@
-import { GoogleLoginButton } from "components/atoms/button/googleLoginButton";
+import { GoogleLoginButton } from "components/elements/button/googleLoginButton";
 import { FC } from "react";
 
 export const Login: FC = () => {

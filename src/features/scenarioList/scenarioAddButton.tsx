@@ -1,7 +1,7 @@
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { FC, useState } from "react";
-import { MenuForAddAndCopy } from "components/atoms/menu/menuForAddAndCopy";
+import { MenuForAddAndCopy } from "components/elements/menu/menuForAddAndCopy";
 
 export const ScenarioAddButton: FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

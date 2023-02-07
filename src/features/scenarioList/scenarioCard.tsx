@@ -8,8 +8,8 @@ import {
 import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
 import noImage from "../../../../public/no-image.jpg";
-import { MenuForUpdateAndDelete } from "components/atoms/menu/menuForUpdateAndDelete";
-import { useClickContextMenu } from "lib/hooks/useClickContextMenu";
+import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
+import { useClickContextMenu } from "libs/hooks/useClickContextMenu";
 
 type Props = {
   title: string;

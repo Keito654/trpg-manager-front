@@ -1,11 +1,11 @@
 import { TextField } from "@mui/material";
-import { SearchButton } from "components/atoms/button/searchButton";
+import { SearchButton } from "components/elements/button/searchButton";
 import { FC } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import { ScenarioModel } from "types/veiwModels";
 import noImage from "../../../../public/no-image.jpg";
-import { ScenarioCard } from "components/molecules/card/scenarioCard";
-import { ScenarioAddButton } from "components/molecules/menuButton/scenarioAddButton";
+import { ScenarioCard } from "./scenarioCard";
+import { ScenarioAddButton } from "./scenarioAddButton";
 
 type Props = {
   scenarioList: Pick<ScenarioModel, "scenarioTitle" | "image">[];

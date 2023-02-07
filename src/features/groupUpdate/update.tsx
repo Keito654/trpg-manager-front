@@ -1,6 +1,6 @@
 import { Box, Button, TextField } from "@mui/material";
-import { CopyButton } from "components/atoms/button/copyButton";
-import { LabelText } from "components/atoms/labelText";
+import { CopyButton } from "components/elements/button/copyButton";
+import { LabelText } from "components/elements/labelText";
 import Link from "next/link";
 import { FC } from "react";
 import { GroupModel } from "types/veiwModels";

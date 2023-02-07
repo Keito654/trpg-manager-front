@@ -2,7 +2,7 @@ import { Card, CardActionArea, CardContent } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import AddIcon from "@mui/icons-material/Add";
 import { FC } from "react";
-import { GroupCard } from "components/molecules/card/groupCard";
+import { GroupCard } from "./groupCard";
 import Link from "next/link";
 import { GroupModel } from "types/veiwModels";
 

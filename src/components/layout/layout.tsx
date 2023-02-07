@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { FC } from "react";
-import { convertPathToName } from "lib/convertPathToName";
+import { convertPathToName } from "libs/convertPathToName";
 
 type Props = {
   children: React.ReactNode;

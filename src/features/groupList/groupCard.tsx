@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
-import { MenuForUpdateAndDelete } from "components/atoms/menu/menuForUpdateAndDelete";
-import { useClickContextMenu } from "lib/hooks/useClickContextMenu";
+import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
+import { useClickContextMenu } from "libs/hooks/useClickContextMenu";
 import { FC } from "react";
 
 type Props = {

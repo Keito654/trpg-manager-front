@@ -13,5 +13,4 @@ export const GroupCard = Template.bind({});
 GroupCard.args = {
   title: "タイトル",
   description: "説明",
-  contextMenu: null,
 };
