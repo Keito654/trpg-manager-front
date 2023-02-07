@@ -9,7 +9,7 @@ import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
 import noImage from "../../../../public/no-image.jpg";
 import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
-import { useClickContextMenu } from "libs/hooks/useClickContextMenu";
+import { useRightClicker } from "libs/hooks/useRightClicker";
 
 type Props = {
   title: string;
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const ScenarioCard: FC<Props> = ({ title, image }) => {
-  const { contextMenu, handleRightClick, handleClose } = useClickContextMenu();
+  const { contextMenu, handleRightClick, handleClose } = useRightClicker();
 
   return (
     <>

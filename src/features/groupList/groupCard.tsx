@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
-import { useClickContextMenu } from "libs/hooks/useClickContextMenu";
+import { useRightClicker } from "libs/hooks/useRightClicker";
 import { FC } from "react";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const GroupCard: FC<Props> = ({ title, description }) => {
-  const { contextMenu, handleRightClick, handleClose } = useClickContextMenu();
+  const { contextMenu, handleRightClick, handleClose } = useRightClicker();
 
   return (
     <>

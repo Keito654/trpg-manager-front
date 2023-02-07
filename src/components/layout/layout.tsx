@@ -7,9 +7,8 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import { FC } from "react";
-import { convertPathToName } from "libs/convertPathToName";
+import { usePathToTitleConveter } from "libs/hooks/usePathToTitleConverter";
 
 type Props = {
   children: React.ReactNode;
@@ -17,6 +16,8 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ children, path }) => {
+  const title = usePathToTitleConveter(path);
+
   return (
     <>
       <header>
@@ -28,7 +29,7 @@ export const Layout: FC<Props> = ({ children, path }) => {
                 component="div"
                 sx={{ flexGrow: 1, fontWeight: "bold" }}
               >
-                {convertPathToName(path)}
+                {title}
               </Typography>
             </Toolbar>
           </AppBar>

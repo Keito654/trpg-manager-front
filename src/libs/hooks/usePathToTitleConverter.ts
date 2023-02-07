@@ -1,4 +1,4 @@
-export const convertPathToName = (path: string): string => {
+export const usePathToTitleConveter = (path: string): string => {
   type Obj = {
     [key: string]: string;
   };
