@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const useRightClicker = () => {
   const [contextMenu, setContextMenu] =
@@ -7,7 +7,9 @@ export const useRightClicker = () => {
       mouseY: number;
     } | null>(null);
 
-  const handleRightClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleRightClick: React.MouseEventHandler = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     event.preventDefault();
     setContextMenu(
       contextMenu === null

@@ -6,17 +6,16 @@ import {
   CardActionArea,
 } from "@mui/material";
 import { FC } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
 import { useRightClicker } from "libs/hooks/useRightClicker";
-import noImage from "@public/no-image.jpg";
 
 type Props = {
   title: string;
-  image: StaticImageData;
+  image?: string;
 };
 
-export const ScenarioCard: FC<Props> = ({ title, image }) => {
+export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
   const { contextMenu, handleRightClick, handleClose } = useRightClicker();
 
   return (
@@ -34,7 +33,7 @@ export const ScenarioCard: FC<Props> = ({ title, image }) => {
             title="scenario image"
           >
             <Image
-              src={image ?? noImage}
+              src={image}
               alt="scenario image"
               fill
               style={{ objectFit: "cover" }}

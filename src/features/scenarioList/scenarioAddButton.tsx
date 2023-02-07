@@ -1,19 +1,12 @@
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { FC, useState } from "react";
-import { MenuForAddAndCopy } from "components/elements/menu/menuForAddAndCopy";
+import { FC } from "react";
+import { MenuForAddAndCopy } from "./menuForAddAndCopy";
+import { useScenarioAddButtonCliker } from "./hooks/useScenarioAddButtonCliker";
 
 export const ScenarioAddButton: FC = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const { open, anchorEl, handleClick, handleClose } =
+    useScenarioAddButtonCliker();
 
   return (
     <>

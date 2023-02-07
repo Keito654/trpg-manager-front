@@ -1,5 +1,11 @@
-import { GroupJoinContainer } from "container/organisms/group/join";
+import { GroupJoin } from "features/groupJoin/join";
 
 export default function GroupJoinPage() {
-  return <GroupJoinContainer />;
+  return (
+    <GroupJoin
+      groupTitle={"テストグループ"}
+      description={"説明"}
+      creator={"テスト"}
+    />
+  );
 }

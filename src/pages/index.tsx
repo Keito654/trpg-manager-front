@@ -1,5 +1,14 @@
-import { GroupListContainer } from "container/organisms/group/list";
+import { GroupList } from "features/groupList/list";
+import { GroupModel } from "types/veiwModels";
 
 export default function Home() {
-  return <GroupListContainer />;
+  const argObj = Array.from(new Array(10)).map((x, i) => {
+    const temp: Pick<GroupModel, "groupTitle" | "description"> = {
+      groupTitle: "グループ" + i,
+      description: "これはテストグループです。",
+    };
+    return temp;
+  });
+
+  return <GroupList groupList={argObj} />;
 }

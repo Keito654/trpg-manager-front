@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
 import { useRightClicker } from "libs/hooks/useRightClicker";
+import Link from "next/link";
 import { FC } from "react";
 
 type Props = {
@@ -20,6 +21,8 @@ export const GroupCard: FC<Props> = ({ title, description }) => {
         <CardActionArea
           sx={{ height: "100%" }}
           onContextMenu={handleRightClick}
+          LinkComponent={Link}
+          href="/group/scenario"
         >
           <CardContent
             sx={{ height: "100%", display: "flex", flexDirection: "column" }}

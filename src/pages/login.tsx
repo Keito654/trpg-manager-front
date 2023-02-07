@@ -1,3 +1,5 @@
-export default function Login() {
-  return <p>Login</p>;
+import { Login } from "features/login/login";
+
+export default function LoginPage() {
+  return <Login />;
 }

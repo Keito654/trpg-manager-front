@@ -1,5 +1,5 @@
-import { GroupAddContainer } from "container/organisms/group/add";
+import { GroupAdd } from "features/groupAdd/add";
 
 export default function GroupAddPage() {
-  return <GroupAddContainer />;
+  return <GroupAdd urlForJoin={"http://example.com"} />;
 }

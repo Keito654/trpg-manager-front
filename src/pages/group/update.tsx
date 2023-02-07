@@ -1,5 +1,11 @@
-import { GroupUpdateContainer } from "container/organisms/group/update";
+import { GroupUpdate } from "features/groupUpdate/update";
 
-export default function GroupUpdate() {
-  return <GroupUpdateContainer />;
+export default function GroupUpdatePage() {
+  return (
+    <GroupUpdate
+      groupTitle={"グループタイトル"}
+      description={"説明"}
+      urlForJoin={"http://example.com"}
+    />
+  );
 }

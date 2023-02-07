@@ -2,7 +2,6 @@ import { Box, TextField, Dialog, Button } from "@mui/material";
 import { FC } from "react";
 import { LabelText } from "components/elements/labelText";
 import Image from "next/image";
-import noImage from "@public/no-image.jpg";
 
 type Props = {
   open: boolean;
@@ -24,7 +23,7 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
         <Box className="mb-8 md:flex">
           <Box className="relative mb-3 h-32 bg-gray-400 md:mb-0 md:w-9/12">
             <Image
-              src={noImage}
+              src="/no-image.jpg"
               alt="aaa"
               fill
               style={{ objectFit: "contain" }}
@@ -56,10 +55,10 @@ export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
           className="mb-8"
         />
         <Box className="mt-8 flex justify-evenly">
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" onClick={handleClose}>
             完了
           </Button>
-          <Button variant="contained" color="cancel">
+          <Button variant="contained" color="cancel" onClick={handleClose}>
             キャンセル
           </Button>
         </Box>

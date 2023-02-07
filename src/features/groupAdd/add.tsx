@@ -11,7 +11,9 @@ declare module "@mui/material/Button" {
   }
 }
 
-export const GroupAdd: FC<GroupModel> = ({ urlForJoin }) => {
+export const GroupAdd: FC<Pick<GroupModel, "urlForJoin">> = ({
+  urlForJoin,
+}) => {
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "column", rowGap: 8, mb: 10 }}>

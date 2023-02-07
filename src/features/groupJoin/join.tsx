@@ -3,7 +3,9 @@ import Link from "next/link";
 import { FC } from "react";
 import { GroupModel } from "types/veiwModels";
 
-export const GroupJoin: FC<GroupModel> = ({ groupTitle, description, creator }) => {
+export const GroupJoin: FC<
+  Pick<GroupModel, "groupTitle" | "description" | "creator">
+> = ({ groupTitle, description, creator }) => {
   return (
     <>
       <Typography>以下のグループに招待されています。参加しますか？</Typography>

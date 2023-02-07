@@ -2,7 +2,6 @@ import { Box, Typography, Link, Dialog, Button } from "@mui/material";
 import { FC } from "react";
 import Image from "next/image";
 import { ScenarioModel } from "types/veiwModels";
-import noImage from "@public/no-image.jpg";
 
 type Props = {
   open: boolean;
@@ -26,7 +25,12 @@ export const ScenarioDetailPop: FC<Props & ScenarioModel> = ({
         </Typography>
         <Box className="md:flex md:gap-5">
           <Box className="relative mb-5 h-32 md:mb-0 md:h-auto md:w-6/12">
-            <Image src={noImage} alt="aaa" fill className="object-contain" />
+            <Image
+              src="/no-image.jpg"
+              alt="aaa"
+              fill
+              className="object-contain"
+            />
           </Box>
           <Box>
             <Typography variant="h6" className="mb-3">
