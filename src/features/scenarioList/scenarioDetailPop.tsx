@@ -50,10 +50,10 @@ export const ScenarioDetailPop: FC<Props & ScenarioModel> = ({
           </Box>
         </Box>
         <Box className="mt-16 flex justify-evenly">
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" onClick={handleClose}>
             完了
           </Button>
-          <Button variant="contained" color="cancel">
+          <Button variant="contained" color="cancel" onClick={handleClose}>
             キャンセル
           </Button>
         </Box>

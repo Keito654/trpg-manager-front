@@ -9,6 +9,8 @@ import { FC } from "react";
 import Image from "next/image";
 import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
 import { useRightClicker } from "libs/hooks/useRightClicker";
+import { ScenarioDetailPop } from "./scenarioDetailPop";
+import { useScenarioDetailOpener } from "./hooks/useScenariDetailOpener";
 
 type Props = {
   title: string;
@@ -17,6 +19,9 @@ type Props = {
 
 export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
   const { contextMenu, handleRightClick, handleClose } = useRightClicker();
+
+  const { IsDetailOpen, handleOpenDetail, handleCloseDetail } =
+    useScenarioDetailOpener();
 
   return (
     <>
@@ -27,7 +32,10 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
           borderColor: "#7d7d7d",
         }}
       >
-        <CardActionArea onContextMenu={handleRightClick}>
+        <CardActionArea
+          onContextMenu={handleRightClick}
+          onClick={handleOpenDetail}
+        >
           <CardMedia
             sx={{ height: "8rem", position: "relative" }}
             title="scenario image"
@@ -59,6 +67,14 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
       <MenuForUpdateAndDelete
         contextMenu={contextMenu}
         handleClose={handleClose}
+      />
+      <ScenarioDetailPop
+        open={IsDetailOpen}
+        handleClose={handleCloseDetail}
+        scenarioTitle={title}
+        description={""}
+        url={""}
+        readPerson={""}
       />
     </>
   );
