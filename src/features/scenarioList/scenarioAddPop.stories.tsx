@@ -12,5 +12,4 @@ export const ScenarioAddPop = Template.bind({});
 
 ScenarioAddPop.args = {
   open: true,
-  handleClose: () => {},
 };

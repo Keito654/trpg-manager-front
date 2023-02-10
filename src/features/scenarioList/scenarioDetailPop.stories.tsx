@@ -12,7 +12,6 @@ export const ScenarioDetailPop = Template.bind({});
 
 ScenarioDetailPop.args = {
   open: true,
-  handleClose: () => {},
   scenarioTitle: "シナリオタイトル",
   image: null,
   description: "これは説明です。説明です。",

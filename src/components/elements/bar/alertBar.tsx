@@ -15,10 +15,7 @@ export const AlertBar: FC<Props> = ({
   text,
   secondText,
 }) => {
-  const handleClose = (
-    event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleClose = () => {
     handleBarClose();
   };
 

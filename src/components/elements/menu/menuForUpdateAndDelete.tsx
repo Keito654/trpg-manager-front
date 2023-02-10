@@ -7,8 +7,6 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-  MenuList,
-  Paper,
 } from "@mui/material";
 import React, { FC, useState } from "react";
 

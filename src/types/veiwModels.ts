@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type GroupModel = {
   groupTitle: string;
   description: string;

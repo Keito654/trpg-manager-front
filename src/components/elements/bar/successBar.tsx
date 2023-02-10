@@ -9,10 +9,7 @@ type Props = {
 };
 
 export const SuccessBar: FC<Props> = ({ open, handleBarClose, text }) => {
-  const handleClose = (
-    event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleClose = () => {
     handleBarClose();
   };
 

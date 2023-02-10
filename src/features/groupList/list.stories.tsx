@@ -16,6 +16,7 @@ const argObj = Array.from(new Array(10)).map((x, i) => {
     groupTitle: `グループ${i}`,
     description: "これはテストグループです。",
   };
+
   return temp;
 });
 

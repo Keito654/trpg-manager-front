@@ -12,7 +12,6 @@ export const ScenarioDetailPop: FC<Props & ScenarioModel> = ({
   open,
   handleClose,
   scenarioTitle,
-  image,
   description,
   url,
   readPerson,

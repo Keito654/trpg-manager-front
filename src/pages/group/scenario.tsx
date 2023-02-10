@@ -6,6 +6,7 @@ export default function ScenarioPage() {
     const temp: Pick<ScenarioModel, "scenarioTitle" | "image"> = {
       scenarioTitle: `シナリオ${i}`,
     };
+
     return temp;
   });
 
