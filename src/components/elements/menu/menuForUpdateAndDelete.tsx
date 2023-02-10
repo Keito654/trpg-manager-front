@@ -1,3 +1,6 @@
+import { DeleteDialog } from "../dialog/deleteDialog";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import {
   Divider,
   ListItemIcon,
@@ -7,10 +10,7 @@ import {
   MenuList,
   Paper,
 } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import React, { FC, useState } from "react";
-import { DeleteDialog } from "../dialog/deleteDialog";
 
 type ContextMenu = {
   mouseX: number;

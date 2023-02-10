@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { SearchButton as Pop } from "./searchButton";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Button",

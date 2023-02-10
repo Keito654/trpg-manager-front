@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { AlertBar as Pop } from "./alertBar";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Bar",

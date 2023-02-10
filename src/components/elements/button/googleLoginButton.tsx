@@ -1,6 +1,5 @@
-import { FC } from "react";
-
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import { FC } from "react";
 
 export const GoogleLoginButton: FC = () => {
   return (

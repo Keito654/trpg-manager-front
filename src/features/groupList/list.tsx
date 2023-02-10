@@ -1,9 +1,9 @@
+import { GroupCard } from "./groupCard";
+import AddIcon from "@mui/icons-material/Add";
 import { Card, CardActionArea, CardContent } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import AddIcon from "@mui/icons-material/Add";
-import { FC } from "react";
-import { GroupCard } from "./groupCard";
 import Link from "next/link";
+import { FC } from "react";
 import { GroupModel } from "types/veiwModels";
 
 type Props = {
@@ -16,10 +16,7 @@ export const GroupList: FC<Props> = ({ groupList }) => {
       <Grid container rowSpacing={5} columnSpacing={3}>
         {groupList.map((x, i) => (
           <Grid key={i}>
-            <GroupCard
-              title={x.groupTitle}
-              description={x.description}
-            />
+            <GroupCard title={x.groupTitle} description={x.description} />
           </Grid>
         ))}
 

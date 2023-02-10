@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { MenuForUpdateAndDelete as Pop } from "./menuForUpdateAndDelete";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Menu",
@@ -11,5 +11,5 @@ const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 export const MenuForUpdateAndDelete = Template.bind({});
 
 MenuForUpdateAndDelete.args = {
-  contextMenu: {mouseX: 3, mouseY: 3}
+  contextMenu: { mouseX: 3, mouseY: 3 },
 };

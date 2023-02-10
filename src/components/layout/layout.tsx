@@ -1,14 +1,17 @@
+import { useHeaderEvent } from "./hooks/useHeaderEvent";
+import { MenuForHeader } from "./menuForHeader";
+import { AccountCircle, Home } from "@mui/icons-material";
 import {
   AppBar,
   Box,
-  Button,
   Container,
   IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
-import { FC } from "react";
 import { usePathToTitleConveter } from "libs/hooks/usePathToTitleConverter";
+import Link from "next/link";
+import { FC } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -17,6 +20,8 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children, path }) => {
   const title = usePathToTitleConveter(path);
+
+  const { anchorEl, handleMenu, handleClose } = useHeaderEvent();
 
   return (
     <>
@@ -31,6 +36,30 @@ export const Layout: FC<Props> = ({ children, path }) => {
               >
                 {title}
               </Typography>
+              <div>
+                <IconButton
+                  size="large"
+                  aria-label="home page button"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                  LinkComponent={Link}
+                  href="/"
+                >
+                  <Home />
+                </IconButton>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                  onClick={handleMenu}
+                >
+                  <AccountCircle />
+                </IconButton>
+                <MenuForHeader anchorEl={anchorEl} handleClose={handleClose} />
+              </div>
             </Toolbar>
           </AppBar>
         </Box>

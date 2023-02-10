@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Login as Pop } from "./login";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Page",

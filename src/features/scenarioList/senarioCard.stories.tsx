@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ScenarioCard as Pop } from "./scenarioCard";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Card",
@@ -12,5 +12,4 @@ export const ScenarioCard = Template.bind({});
 
 ScenarioCard.args = {
   title: "タイトル１",
-  contextMenu: null,
 };

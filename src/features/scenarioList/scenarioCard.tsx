@@ -1,3 +1,5 @@
+import { useScenarioDetailOpener } from "./hooks/useScenariDetailOpener";
+import { ScenarioDetailPop } from "./scenarioDetailPop";
 import {
   Card,
   CardMedia,
@@ -5,12 +7,10 @@ import {
   Typography,
   CardActionArea,
 } from "@mui/material";
-import { FC } from "react";
-import Image from "next/image";
 import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
 import { useRightClicker } from "libs/hooks/useRightClicker";
-import { ScenarioDetailPop } from "./scenarioDetailPop";
-import { useScenarioDetailOpener } from "./hooks/useScenariDetailOpener";
+import Image from "next/image";
+import { FC } from "react";
 
 type Props = {
   title: string;

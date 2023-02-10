@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { GoogleLoginButton as Pop } from "./googleLoginButton";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Button",

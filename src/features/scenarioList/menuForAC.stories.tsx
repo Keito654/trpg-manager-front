@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { MenuForAddAndCopy as Pop } from "./menuForAddAndCopy";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Menu",

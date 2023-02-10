@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { SuccessBar as Pop } from "./successBar";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Bar",

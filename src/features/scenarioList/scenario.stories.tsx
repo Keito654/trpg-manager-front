@@ -1,6 +1,6 @@
+import { Scenario as Pop } from "./scenario";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ScenarioModel } from "types/veiwModels";
-import { Scenario as Pop } from "./scenario";
 
 export default {
   title: "Page",
@@ -13,7 +13,7 @@ export const Scenario = Template.bind({});
 
 const argObj = Array.from(new Array(10)).map((x, i) => {
   const temp: Pick<ScenarioModel, "scenarioTitle" | "image"> = {
-    scenarioTitle: "シナリオ" + i,
+    scenarioTitle: `シナリオ${i}`,
   };
   return temp;
 });

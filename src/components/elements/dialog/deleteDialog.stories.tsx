@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { DeleteDialog as Pop } from "./deleteDialog";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Dialog",

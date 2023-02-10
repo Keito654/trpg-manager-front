@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ScenarioDetailPop as Pop } from "./scenarioDetailPop";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "PopUp",

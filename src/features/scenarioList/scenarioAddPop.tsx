@@ -1,7 +1,7 @@
 import { Box, TextField, Dialog, Button } from "@mui/material";
-import { FC } from "react";
 import { LabelText } from "components/elements/labelText";
 import Image from "next/image";
+import { FC } from "react";
 
 type Props = {
   open: boolean;

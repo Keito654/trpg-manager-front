@@ -1,3 +1,7 @@
+import { useScenarioCreater } from "./hooks/useScenarioCreater";
+import { ScenarioAddPop } from "./scenarioAddPop";
+import AddIcon from "@mui/icons-material/Add";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import {
   MenuItem,
   ListItemIcon,
@@ -5,11 +9,7 @@ import {
   Divider,
   Menu,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { FC } from "react";
-import { ScenarioAddPop } from "./scenarioAddPop";
-import { useScenarioCreater } from "./hooks/useScenarioCreater";
 
 type Props = {
   open: boolean;

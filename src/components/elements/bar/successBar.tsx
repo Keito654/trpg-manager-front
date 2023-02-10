@@ -1,5 +1,5 @@
-import { Snackbar, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { Snackbar, IconButton } from "@mui/material";
 import { FC } from "react";
 
 type Props = {

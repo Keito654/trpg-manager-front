@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { CopyButton as Pop } from "./copyButton";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Button",

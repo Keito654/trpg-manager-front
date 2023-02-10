@@ -1,6 +1,6 @@
 import { Box, Typography, Link, Dialog, Button } from "@mui/material";
-import { FC } from "react";
 import Image from "next/image";
+import { FC } from "react";
 import { ScenarioModel } from "types/veiwModels";
 
 type Props = {

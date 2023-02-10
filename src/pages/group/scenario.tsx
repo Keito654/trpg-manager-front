@@ -4,7 +4,7 @@ import { ScenarioModel } from "types/veiwModels";
 export default function ScenarioPage() {
   const argObj = Array.from(new Array(10)).map((x, i) => {
     const temp: Pick<ScenarioModel, "scenarioTitle" | "image"> = {
-      scenarioTitle: "シナリオ" + i,
+      scenarioTitle: `シナリオ${i}`,
     };
     return temp;
   });

@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { GroupUpdate as Pop } from "./update";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Page",

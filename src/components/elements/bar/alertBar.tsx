@@ -1,5 +1,5 @@
-import { Snackbar, IconButton, Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { Snackbar, IconButton, Button } from "@mui/material";
 import { FC } from "react";
 
 type Props = {
@@ -9,7 +9,12 @@ type Props = {
   secondText: string;
 };
 
-export const AlertBar: FC<Props> = ({ open, handleBarClose, text, secondText }) => {
+export const AlertBar: FC<Props> = ({
+  open,
+  handleBarClose,
+  text,
+  secondText,
+}) => {
   const handleClose = (
     event: React.SyntheticEvent | Event,
     reason?: string

@@ -4,7 +4,7 @@ import { GroupModel } from "types/veiwModels";
 export default function Home() {
   const argObj = Array.from(new Array(10)).map((x, i) => {
     const temp: Pick<GroupModel, "groupTitle" | "description"> = {
-      groupTitle: "グループ" + i,
+      groupTitle: `グループ${i}`,
       description: "これはテストグループです。",
     };
     return temp;

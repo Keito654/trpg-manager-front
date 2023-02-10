@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { GroupCard as Pop } from "./groupCard";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Card",

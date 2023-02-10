@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { GroupJoin as Pop } from "./join";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Page",
