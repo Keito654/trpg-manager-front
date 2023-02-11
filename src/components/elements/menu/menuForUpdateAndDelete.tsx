@@ -17,11 +17,13 @@ type ContextMenu = {
 
 type Props = {
   contextMenu: ContextMenu;
+  handleClickUpdate: () => void;
   handleClose: () => void;
 };
 
 export const MenuForUpdateAndDelete: FC<Props> = ({
   contextMenu,
+  handleClickUpdate,
   handleClose,
 }) => {
   const [isDeleting, setIsDeleting] = useState(false);
@@ -50,7 +52,7 @@ export const MenuForUpdateAndDelete: FC<Props> = ({
           handleClose();
         }}
       >
-        <MenuItem>
+        <MenuItem onClick={handleClickUpdate}>
           <ListItemIcon>
             <EditIcon fontSize="small" />
           </ListItemIcon>

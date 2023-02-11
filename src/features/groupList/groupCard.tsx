@@ -2,6 +2,7 @@ import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { MenuForUpdateAndDelete } from "components/elements/menu/menuForUpdateAndDelete";
 import { useRightClicker } from "libs/hooks/useRightClicker";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FC } from "react";
 
 type Props = {
@@ -11,6 +12,7 @@ type Props = {
 
 export const GroupCard: FC<Props> = ({ title, description }) => {
   const { contextMenu, handleRightClick, handleClose } = useRightClicker();
+  const router = useRouter();
 
   return (
     <>
@@ -47,6 +49,9 @@ export const GroupCard: FC<Props> = ({ title, description }) => {
       </Card>
       <MenuForUpdateAndDelete
         contextMenu={contextMenu}
+        handleClickUpdate={() => {
+          void router.push("/group/update");
+        }}
         handleClose={handleClose}
       />
     </>

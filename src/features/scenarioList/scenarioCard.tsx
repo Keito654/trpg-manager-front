@@ -1,5 +1,7 @@
 import { useScenarioDetailOpener } from "./hooks/useScenariDetailOpener";
+import { useScenarioUpdateOpener } from "./hooks/useScenarioUpdateOpener";
 import { ScenarioDetailPop } from "./scenarioDetailPop";
+import { ScenarioUpdatePop } from "./scenarioUpdatePop";
 import {
   Card,
   CardMedia,
@@ -22,6 +24,9 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
 
   const { IsDetailOpen, handleOpenDetail, handleCloseDetail } =
     useScenarioDetailOpener();
+
+  const { IsUpdateOpen, handleOpenUpdate, handleCloseUpdate } =
+    useScenarioUpdateOpener();
 
   return (
     <>
@@ -67,6 +72,15 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
       <MenuForUpdateAndDelete
         contextMenu={contextMenu}
         handleClose={handleClose}
+        handleClickUpdate={handleOpenUpdate}
+      />
+      <ScenarioUpdatePop
+        open={IsUpdateOpen}
+        handleClose={handleCloseUpdate}
+        title={""}
+        url={""}
+        description={""}
+        readPerson={""}
       />
       <ScenarioDetailPop
         open={IsDetailOpen}
