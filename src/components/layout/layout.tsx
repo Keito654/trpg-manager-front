@@ -9,18 +9,14 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { usePathToTitleConveter } from "libs/hooks/usePathToTitleConverter";
 import Link from "next/link";
 import { FC } from "react";
 
 type Props = {
   children: React.ReactNode;
-  path: string;
 };
 
-export const Layout: FC<Props> = ({ children, path }) => {
-  const title = usePathToTitleConveter(path);
-
+export const Layout: FC<Props> = ({ children }) => {
   const { anchorEl, handleMenu, handleClose } = useHeaderEvent();
 
   return (
@@ -34,7 +30,7 @@ export const Layout: FC<Props> = ({ children, path }) => {
                 component="div"
                 sx={{ flexGrow: 1, fontWeight: "bold" }}
               >
-                {title}
+                {"TRPGシナリオマネージャー"}
               </Typography>
               <div>
                 <IconButton

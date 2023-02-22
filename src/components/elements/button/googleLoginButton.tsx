@@ -1,20 +1,25 @@
-import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import { Button } from "@mui/material";
+import { supabase } from "libs/initSupabase";
 import { FC } from "react";
 
 export const GoogleLoginButton: FC = () => {
+  const handleGoogleLogin = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: "/",
+      },
+    });
+  };
+
   return (
-    <GoogleOAuthProvider
-      clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}
+    <Button
+      variant="contained"
+      onClick={() => {
+        void handleGoogleLogin();
+      }}
     >
-      <GoogleLogin
-        onSuccess={(credentialResponse) => {
-          console.log(credentialResponse);
-        }}
-        onError={() => {
-          console.log("Login Failed");
-        }}
-        theme="filled_blue"
-      />
-    </GoogleOAuthProvider>
+      Googleでログイン
+    </Button>
   );
 };
