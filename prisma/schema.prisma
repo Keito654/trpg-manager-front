@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model Group {
+  id          String      @id @default(uuid())
+  name        String
+  description String
+  shareKey    String      @unique @default(uuid()) @map("share_key")
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+  creatorID   String      @map("creator_id")
+  GroupUser   GroupUser[]
+  Scenario    Scenario[]
+
+  @@map("groups")
+}
+
+model GroupUser {
+  group   Group  @relation(fields: [groupID], references: [id])
+  groupID String @map("group_id")
+  userID  String @map("user_id")
+
+  @@id([groupID, userID])
+  @@map("group_users")
+}
+
+model Scenario {
+  id          Int      @default(autoincrement())
+  group       Group    @relation(fields: [groupID], references: [id])
+  groupID     String   @map("group_id")
+  name        String
+  description String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  creatorID   String   @map("creator_id")
+
+  @@id([id, groupID])
+  @@map("scenarios")
+}
