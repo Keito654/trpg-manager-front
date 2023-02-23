@@ -4,10 +4,12 @@ import { Card, CardActionArea, CardContent } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Link from "next/link";
 import { FC } from "react";
-import { GroupModel } from "types/veiwModels";
 
 type Props = {
-  groupList: Pick<GroupModel, "groupTitle" | "description">[];
+  groupList: {
+    groupTitle: string;
+    description: string;
+  }[];
 };
 
 export const GroupList: FC<Props> = ({ groupList }) => {
