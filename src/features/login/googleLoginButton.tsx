@@ -18,6 +18,7 @@ export const GoogleLoginButton: FC = () => {
       onClick={() => {
         void handleGoogleLogin();
       }}
+      className="normal-case"
     >
       Googleでログイン
     </Button>
