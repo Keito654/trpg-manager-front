@@ -18,6 +18,15 @@ export const getServerSideProps = async (
     data: { session },
   } = await supabase.auth.getSession();
 
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
   const data = await prisma.group.findMany({
     where: {
       GroupUser: {
