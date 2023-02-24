@@ -15,7 +15,7 @@ datasource db {
 model Group {
   id          String      @id @default(uuid())
   name        String
-  description String
+  description String?
   shareKey    String      @unique @default(uuid()) @map("share_key")
   createdAt   DateTime    @default(now()) @map("created_at")
   updatedAt   DateTime    @updatedAt @map("updated_at")
@@ -40,8 +40,8 @@ model Scenario {
   group       Group    @relation(fields: [groupID], references: [id])
   groupID     String   @map("group_id")
   name        String
-  description String
-  imageKey    String   @map("image_key")
+  description String?
+  imageKey    String?  @map("image_key")
   readUsers   String[] @map("read_users")
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
