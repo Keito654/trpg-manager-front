@@ -1,7 +1,7 @@
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { GroupList } from "features/groupList/list";
 import prisma from "libs/initPrisma";
-import { supabase } from "libs/initSupabase";
-import { InferGetServerSidePropsType } from "next";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 
 export default function Home({
   data,
@@ -9,17 +9,19 @@ export default function Home({
   return <GroupList groupList={data} />;
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const supabase = createServerSupabaseClient(context);
+
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
   const data = await prisma.group.findMany({
-    include: {
+    where: {
       GroupUser: {
-        where: {
-          userID: session?.user?.id,
-        },
+        some: { userID: session?.user?.id },
       },
     },
   });
