@@ -7,7 +7,7 @@ import { FC } from "react";
 
 type Props = {
   title: string;
-  description: string | undefined;
+  description: string | null;
 };
 
 export const GroupCard: FC<Props> = ({ title, description }) => {

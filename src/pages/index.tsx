@@ -6,12 +6,7 @@ import { InferGetServerSidePropsType } from "next";
 export default function Home({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const groupData = data.map((x) => ({
-    groupTitle: x.name,
-    description: x.description,
-  }));
-
-  return <GroupList groupList={groupData} />;
+  return <GroupList groupList={data} />;
 }
 
 export const getServerSideProps = async () => {
@@ -29,7 +24,12 @@ export const getServerSideProps = async () => {
     },
   });
 
+  const groupData = data.map((x) => ({
+    groupTitle: x.name,
+    description: x.description,
+  }));
+
   return {
-    props: { data },
+    props: { data: groupData },
   };
 };
