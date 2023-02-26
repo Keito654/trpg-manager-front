@@ -1,5 +1,6 @@
 import { useScenarioCreater } from "./hooks/useScenarioCreater";
 import { ScenarioAddPop } from "./scenarioAddPop";
+import { useClipboard } from "@mantine/hooks";
 import AddIcon from "@mui/icons-material/Add";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import {
@@ -9,20 +10,46 @@ import {
   Divider,
   Menu,
 } from "@mui/material";
+import { AlertBar } from "components/elements/bar/alertBar";
 import { FC } from "react";
 
 type Props = {
   open: boolean;
   anchorEl: null | HTMLElement;
   onClose: () => void;
+  groupId: string;
 };
 
-export const MenuForAddAndCopy: FC<Props> = ({ open, anchorEl, onClose }) => {
+export const MenuForAddAndCopy: FC<Props> = ({
+  open,
+  anchorEl,
+  onClose,
+  groupId,
+}) => {
   const {
     isCreatePopupOpen,
     handleCreateButtonClick,
     handleCreateButtonClose,
   } = useScenarioCreater();
+
+  const clipboard = useClipboard({ timeout: 500 });
+
+  const handleAddMemberButtonClick = async () => {
+    const res = await fetch(`/api/getShareUrl?groupId=${groupId}`, {
+      method: "GET",
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const json = await res.json();
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (json.ok) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      clipboard.copy(json.shareKey);
+    } else {
+      alert("共有URLの取得に失敗しました");
+    }
+  };
 
   return (
     <>
@@ -46,7 +73,7 @@ export const MenuForAddAndCopy: FC<Props> = ({ open, anchorEl, onClose }) => {
           <ListItemText>シナリオを追加</ListItemText>
         </MenuItem>
         <Divider />
-        <MenuItem>
+        <MenuItem onClick={handleAddMemberButtonClick}>
           <ListItemIcon>
             <PersonAddIcon fontSize="small" />
           </ListItemIcon>
@@ -56,6 +83,14 @@ export const MenuForAddAndCopy: FC<Props> = ({ open, anchorEl, onClose }) => {
       <ScenarioAddPop
         open={isCreatePopupOpen}
         handleClose={handleCreateButtonClose}
+      />
+      <AlertBar
+        open={false}
+        handleBarClose={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+        text="共有URLをコピーしました。"
+        secondText="もう一度コピーする"
       />
     </>
   );

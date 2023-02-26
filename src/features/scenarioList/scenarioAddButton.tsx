@@ -4,7 +4,11 @@ import AddIcon from "@mui/icons-material/Add";
 import { Fab } from "@mui/material";
 import { FC } from "react";
 
-export const ScenarioAddButton: FC = () => {
+type Props = {
+  groupId: string;
+};
+
+export const ScenarioAddButton: FC<Props> = ({ groupId }) => {
   const { open, anchorEl, handleClick, handleClose } =
     useScenarioAddButtonCliker();
 
@@ -21,6 +25,7 @@ export const ScenarioAddButton: FC = () => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
+        groupId={groupId}
       />
     </>
   );

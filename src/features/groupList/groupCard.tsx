@@ -6,11 +6,12 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 
 type Props = {
+  id: string;
   title: string;
   description: string | null;
 };
 
-export const GroupCard: FC<Props> = ({ title, description }) => {
+export const GroupCard: FC<Props> = ({ id, title, description }) => {
   const { contextMenu, handleRightClick, handleClose } = useRightClicker();
   const router = useRouter();
 
@@ -24,7 +25,7 @@ export const GroupCard: FC<Props> = ({ title, description }) => {
           sx={{ height: "100%" }}
           onContextMenu={handleRightClick}
           LinkComponent={Link}
-          href="/group/scenario"
+          href={`/group/${id}`}
         >
           <CardContent
             sx={{ height: "100%", display: "flex", flexDirection: "column" }}

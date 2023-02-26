@@ -28,6 +28,11 @@ export const getServerSideProps = async (
   }
 
   const data = await prisma.group.findMany({
+    select: {
+      id: true,
+      name: true,
+      description: true,
+    },
     where: {
       GroupUser: {
         some: { userID: session?.user?.id },
@@ -36,6 +41,7 @@ export const getServerSideProps = async (
   });
 
   const groupData = data.map((x) => ({
+    id: x.id,
     groupTitle: x.name,
     description: x.description,
   }));

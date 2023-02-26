@@ -1,23 +1,29 @@
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import prisma from "libs/initPrisma";
 import { NextApiHandler } from "next";
 import { groupRegistrationFormSchema } from "types/schema/groupRegistrationForm";
 
 const handler: NextApiHandler = async (req, res) => {
   try {
-    const data = await groupRegistrationFormSchema.validate(req.body);
+    const supabase = createServerSupabaseClient({ req, res });
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
 
-    if (!data.createID) {
+    if (!session) {
       throw new Error(
         "ユーザーIDを取得できませんでした。もう一度試してください。"
       );
     }
+
+    const data = await groupRegistrationFormSchema.validate(req.body);
 
     const group = await prisma.group.create({
       data: {
         name: data.groupTitle,
         description: data.description,
         shareKey: data.urlForJoin,
-        creatorID: data.createID,
+        creatorID: session.user.id,
       },
     });
 

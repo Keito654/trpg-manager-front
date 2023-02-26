@@ -8,7 +8,6 @@ export const groupRegistrationFormSchema = yup.object({
     .max(50, "50文字以内で入力してください。"),
   description: yup.string().max(100, "100文字以内で入力してください。"),
   urlForJoin: yup.string().required(),
-  createID: yup.string(),
 });
 
 export type GroupRegistrationForm = InferType<

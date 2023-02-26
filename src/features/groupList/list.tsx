@@ -7,7 +7,7 @@ import { FC } from "react";
 import { GroupModel } from "types/veiwModels";
 
 type Props = {
-  groupList: Pick<GroupModel, "groupTitle" | "description">[];
+  groupList: Pick<GroupModel, "id" | "groupTitle" | "description">[];
 };
 
 export const GroupList: FC<Props> = ({ groupList }) => {
@@ -17,7 +17,11 @@ export const GroupList: FC<Props> = ({ groupList }) => {
         {groupList.length > 0 &&
           groupList.map((x, i) => (
             <Grid key={i}>
-              <GroupCard title={x.groupTitle} description={x.description} />
+              <GroupCard
+                id={x.id}
+                title={x.groupTitle}
+                description={x.description}
+              />
             </Grid>
           ))}
 
