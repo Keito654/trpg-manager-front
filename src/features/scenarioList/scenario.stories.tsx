@@ -1,6 +1,6 @@
 import { Scenario as Pop } from "./scenario";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ScenarioModel } from "types/veiwModels";
+import { ScenarioModel } from "types/viewModels";
 
 export default {
   title: "Page",

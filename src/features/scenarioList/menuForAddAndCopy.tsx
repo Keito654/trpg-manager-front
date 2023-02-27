@@ -1,4 +1,4 @@
-import { useScenarioCreater } from "./hooks/useScenarioCreater";
+import { useScenarioCreator } from "./hooks/useScenarioCreator";
 import { ScenarioAddPop } from "./scenarioAddPop";
 import { useClipboard } from "@mantine/hooks";
 import AddIcon from "@mui/icons-material/Add";
@@ -30,7 +30,7 @@ export const MenuForAddAndCopy: FC<Props> = ({
     isCreatePopupOpen,
     handleCreateButtonClick,
     handleCreateButtonClose,
-  } = useScenarioCreater();
+  } = useScenarioCreator();
 
   const clipboard = useClipboard({ timeout: 500 });
 
@@ -84,6 +84,7 @@ export const MenuForAddAndCopy: FC<Props> = ({
         open={isCreatePopupOpen}
         handleClose={handleCreateButtonClose}
       />
+      {"/* TODO アラートを作成する */"}
       <AlertBar
         open={false}
         handleBarClose={function (): void {

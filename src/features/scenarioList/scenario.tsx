@@ -4,7 +4,7 @@ import { TextField, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { SearchButton } from "components/elements/button/searchButton";
 import { FC } from "react";
-import { ScenarioModel } from "types/veiwModels";
+import { ScenarioModel } from "types/viewModels";
 
 type Props = {
   scenarioList: Pick<ScenarioModel, "id" | "scenarioTitle" | "image">[];

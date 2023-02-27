@@ -1,6 +1,6 @@
 import { GroupList as Pop } from "./list";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { GroupModel } from "types/veiwModels";
+import { GroupModel } from "types/viewModels";
 
 export default {
   title: "Page",

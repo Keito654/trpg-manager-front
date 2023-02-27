@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useScenarioCreater = () => {
+export const useScenarioCreator = () => {
   const [isCreatePopupOpen, setIsCreatePopupOpen] = useState(false);
 
   const handleCreateButtonClick = () => {

@@ -1,7 +1,7 @@
 import { Box, Typography, Link, Dialog, Button } from "@mui/material";
 import Image from "next/image";
 import { FC } from "react";
-import { ScenarioModel } from "types/veiwModels";
+import { ScenarioModel } from "types/viewModels";
 
 type Props = {
   open: boolean;

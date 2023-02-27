@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import Link from "next/link";
 import { FC } from "react";
-import { GroupModel } from "types/veiwModels";
+import { GroupModel } from "types/viewModels";
 
 export const GroupJoin: FC<
   Pick<GroupModel, "groupTitle" | "description" | "creator">

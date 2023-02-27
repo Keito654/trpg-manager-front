@@ -3,7 +3,7 @@ import { CopyButton } from "components/elements/button/copyButton";
 import { LabelText } from "components/elements/labelText";
 import Link from "next/link";
 import { FC } from "react";
-import { GroupModel } from "types/veiwModels";
+import { GroupModel } from "types/viewModels";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
