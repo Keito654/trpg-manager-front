@@ -1,6 +1,6 @@
+import { useCopyShareUrl } from "./hooks/useCopyShareUrl";
 import { useScenarioCreator } from "./hooks/useScenarioCreator";
 import { ScenarioAddPop } from "./scenarioAddPop";
-import { useClipboard } from "@mantine/hooks";
 import AddIcon from "@mui/icons-material/Add";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import {
@@ -32,24 +32,8 @@ export const MenuForAddAndCopy: FC<Props> = ({
     handleCreateButtonClose,
   } = useScenarioCreator();
 
-  const clipboard = useClipboard({ timeout: 500 });
-
-  const handleAddMemberButtonClick = async () => {
-    const res = await fetch(`/api/getShareUrl?groupId=${groupId}`, {
-      method: "GET",
-    });
-
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const json = await res.json();
-
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    if (json.ok) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      clipboard.copy(json.shareKey);
-    } else {
-      alert("共有URLの取得に失敗しました");
-    }
-  };
+  const { isAlertOpen, setIsAlertOpen, handleAddMemberButtonClick } =
+    useCopyShareUrl(groupId);
 
   return (
     <>
@@ -84,12 +68,10 @@ export const MenuForAddAndCopy: FC<Props> = ({
         open={isCreatePopupOpen}
         handleClose={handleCreateButtonClose}
       />
-      {"/* TODO アラートを作成する */"}
       <AlertBar
-        open={false}
-        handleBarClose={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        open={isAlertOpen}
+        handleSecondTextClick={handleAddMemberButtonClick}
+        handleBarClose={() => setIsAlertOpen(false)}
         text="共有URLをコピーしました。"
         secondText="もう一度コピーする"
       />
