@@ -8,7 +8,7 @@ export type GroupModel = {
 };
 
 export type ScenarioModel = {
-  id: number;
+  id: string;
   scenarioTitle: string;
   image: any | null;
   description: string | null;

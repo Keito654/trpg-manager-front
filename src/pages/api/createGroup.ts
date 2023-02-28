@@ -23,14 +23,14 @@ const handler: NextApiHandler = async (req, res) => {
         name: data.groupTitle,
         description: data.description,
         shareKey: data.urlForJoin,
-        creatorID: session.user.id,
+        creatorId: session.user.id,
       },
     });
 
-    await prisma.groupUser.create({
+    await prisma.userGroup.create({
       data: {
-        userID: group.creatorID,
-        groupID: group.id,
+        userId: group.creatorId,
+        groupId: group.id,
       },
     });
 

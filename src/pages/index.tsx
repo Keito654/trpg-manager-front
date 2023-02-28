@@ -34,8 +34,8 @@ export const getServerSideProps = async (
       description: true,
     },
     where: {
-      GroupUser: {
-        some: { userID: session?.user?.id },
+      UserGroup: {
+        some: { userId: session?.user?.id },
       },
     },
   });

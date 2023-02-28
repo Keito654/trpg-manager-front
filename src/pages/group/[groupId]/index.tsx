@@ -30,11 +30,12 @@ export const getServerSideProps = async (
     };
   }
 
+  // TODO :データベース設計を変更したことにより、取得クエリが変更となるため治す。
   // GroupUserに、セッションIDとグループIDが存在するか確認
-  const groupMemberData = await prisma.groupUser.findFirst({
+  const groupMemberData = await prisma.userGroup.findFirst({
     where: {
-      userID: session?.user?.id,
-      groupID: groupId as string,
+      userId: session?.user?.id,
+      groupId: groupId as string,
     },
   });
 
@@ -45,12 +46,12 @@ export const getServerSideProps = async (
   const data = await prisma.scenario.findMany({
     select: {
       id: true,
-      groupID: true,
+      groupId: true,
       name: true,
       imageKey: true,
     },
     where: {
-      groupID: groupId as string,
+      groupId: groupId as string,
     },
   });
 
