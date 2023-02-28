@@ -12,41 +12,46 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+// UserGroup model
+model UserGroup {
+  groupId String @map("group_id")
+  userId  String @map("user_id")
+  group   Group  @relation(fields: [groupId], references: [id])
+
+  @@id([groupId, userId])
+}
+
+// Group model
 model Group {
-  id          String      @id @default(uuid())
+  id          String      @id @default(uuid()) // PK
   name        String
   description String?
-  shareKey    String      @unique @default(uuid()) @map("share_key")
+  shareKey    String      @unique @map("share_key")
   createdAt   DateTime    @default(now()) @map("created_at")
   updatedAt   DateTime    @updatedAt @map("updated_at")
-  creatorID   String      @map("creator_id")
-  GroupUser   GroupUser[]
-  Scenario    Scenario[]
-
-  @@map("groups")
+  creatorId   String      @map("creator_id")
+  scenarios   Scenario[]
+  UserGroup   UserGroup[]
 }
 
-model GroupUser {
-  group   Group  @relation(fields: [groupID], references: [id])
-  groupID String @map("group_id")
-  userID  String @map("user_id")
-
-  @@id([groupID, userID])
-  @@map("group_users")
-}
-
+// Scenario model
 model Scenario {
-  id          Int      @default(autoincrement())
-  group       Group    @relation(fields: [groupID], references: [id])
-  groupID     String   @map("group_id")
-  name        String
-  description String?
-  imageKey    String?  @map("image_key")
-  readUsers   String[] @map("read_users")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
-  creatorID   String   @map("creator_id")
+  id           String         @id @default(uuid()) // PK
+  name         String
+  description  String?
+  imageKey     String?        @map("image_key")
+  groupId      String         @map("group_id")
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+  group        Group          @relation(fields: [groupId], references: [id]) // belongs to Group (many-to-one)
+  ScenarioUser ScenarioUser[]
+}
 
-  @@id([id, groupID])
-  @@map("scenarios")
+// ScenarioUser model
+model ScenarioUser {
+  scenarioId String   @map("scenario_id")
+  userId     String   @map("user_id")
+  scenario   Scenario @relation(fields: [scenarioId], references: [id]) // read by User (many-to-many)
+
+  @@id([scenarioId, userId])
 }
