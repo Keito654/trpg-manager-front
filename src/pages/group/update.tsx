@@ -5,7 +5,7 @@ export default function GroupUpdatePage() {
     <GroupUpdate
       groupTitle={"グループタイトル"}
       description={"説明"}
-      urlForJoin={"http://example.com"}
+      shareKey={"http://example.com"}
     />
   );
 }

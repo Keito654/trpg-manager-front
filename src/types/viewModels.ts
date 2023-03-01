@@ -3,7 +3,7 @@ export type GroupModel = {
   id: string;
   groupTitle: string;
   description: string | null;
-  urlForJoin: string;
+  shareKey: string;
   creator: string;
 };
 

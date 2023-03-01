@@ -12,11 +12,11 @@ declare module "@mui/material/Button" {
   }
 }
 
-type Props = Pick<GroupModel, "urlForJoin">;
+type Props = Pick<GroupModel, "shareKey">;
 
-export const GroupAdd: FC<Props> = ({ urlForJoin }) => {
+export const GroupAdd: FC<Props> = ({ shareKey }) => {
   const { register, handleSubmit, errors, onSubmit } =
-    useGroupCreator(urlForJoin);
+    useGroupCreator(shareKey);
 
   return (
     <>
@@ -54,6 +54,7 @@ export const GroupAdd: FC<Props> = ({ urlForJoin }) => {
             InputProps={{ readOnly: true, endAdornment: <CopyButton /> }}
             {...register("urlForJoin")}
           />
+          {/*TODO: コピーボタンを押すとコピーできるようにする。 */}
         </Box>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>

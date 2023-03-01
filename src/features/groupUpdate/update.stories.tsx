@@ -13,5 +13,5 @@ export const GroupUpdate = Template.bind({});
 GroupUpdate.args = {
   groupTitle: "テストグループ１",
   description: "これはテストのためのグループです。",
-  urlForJoin: "http://example.com",
+  shareKey: "http://example.com",
 };

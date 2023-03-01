@@ -11,5 +11,5 @@ const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 export const GroupAdd = Template.bind({});
 
 GroupAdd.args = {
-  urlForJoin: "http://example.com",
+  shareKey: "http://example.com",
 };

@@ -1,7 +1,9 @@
 import { useClipboard } from "@mantine/hooks";
+import { useShareUrlConverter } from "libs/hooks/useShareUrlConverter";
 import { useState } from "react";
 
 export const useCopyShareUrl = (groupId: string) => {
+  const { convertShareKeyToUrl } = useShareUrlConverter();
   const clipboard = useClipboard({ timeout: 500 });
 
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -17,7 +19,7 @@ export const useCopyShareUrl = (groupId: string) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (json.ok) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      clipboard.copy(json.shareKey);
+      clipboard.copy(convertShareKeyToUrl(json.shareKey as string));
       setIsAlertOpen(true);
     } else {
       alert("共有URLの取得に失敗しました");

@@ -12,8 +12,8 @@ declare module "@mui/material/Button" {
 }
 
 export const GroupUpdate: FC<
-  Pick<GroupModel, "groupTitle" | "description" | "urlForJoin">
-> = ({ groupTitle, description, urlForJoin }) => {
+  Pick<GroupModel, "groupTitle" | "description" | "shareKey">
+> = ({ groupTitle, description, shareKey }) => {
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "column", rowGap: 8, mb: 10 }}>
@@ -39,7 +39,7 @@ export const GroupUpdate: FC<
         <Box>
           <LabelText>共有URL</LabelText>
           <TextField
-            defaultValue={urlForJoin}
+            defaultValue={shareKey}
             fullWidth
             InputProps={{ readOnly: true, endAdornment: <CopyButton /> }}
           />

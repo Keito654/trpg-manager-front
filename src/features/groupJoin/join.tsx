@@ -4,8 +4,9 @@ import { FC } from "react";
 import { GroupModel } from "types/viewModels";
 
 export const GroupJoin: FC<
-  Pick<GroupModel, "groupTitle" | "description" | "creator">
-> = ({ groupTitle, description, creator }) => {
+  Pick<GroupModel, "id" | "groupTitle" | "description">
+> = ({ groupTitle, description }) => {
+  // TODO : グループの作成者の名前が取得できないため、表示させていない。修正する。
   return (
     <>
       <Typography>以下のグループに招待されています。参加しますか？</Typography>
@@ -21,7 +22,6 @@ export const GroupJoin: FC<
           {groupTitle}
         </Typography>
         <Typography sx={{ mb: 2 }}>{description}</Typography>
-        <Typography>{`作成者：${creator}`}</Typography>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-evenly", mt: 10 }}>
         <Button variant="contained" color="secondary">
