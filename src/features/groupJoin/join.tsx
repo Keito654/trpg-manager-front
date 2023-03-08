@@ -7,6 +7,7 @@ export const GroupJoin: FC<
   Pick<GroupModel, "id" | "groupTitle" | "description">
 > = ({ groupTitle, description }) => {
   // TODO : グループの作成者の名前が取得できないため、表示させていない。修正する。
+  // TODO: グループ参加の処理を実装する
   return (
     <>
       <Typography>以下のグループに招待されています。参加しますか？</Typography>

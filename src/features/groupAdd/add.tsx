@@ -1,5 +1,7 @@
+import { useCopyShareUrl } from "./hooks/useCopyShareUrl";
 import { useGroupCreator } from "./hooks/useGroupCreator";
 import { Box, Button, TextField } from "@mui/material";
+import { AlertBar } from "components/elements/bar/alertBar";
 import { CopyButton } from "components/elements/button/copyButton";
 import { LabelText } from "components/elements/labelText";
 import Link from "next/link";
@@ -15,8 +17,12 @@ declare module "@mui/material/Button" {
 type Props = Pick<GroupModel, "shareKey">;
 
 export const GroupAdd: FC<Props> = ({ shareKey }) => {
+  // グループ追加に関わる処理をまとめたカスタムフックを呼び出す。
   const { register, handleSubmit, errors, onSubmit } =
     useGroupCreator(shareKey);
+
+  // 共有URLをコピーする処理をまとめたカスタムフックを呼び出す。
+  const { handleCopy, isAlertOpen, setIsAlertOpen } = useCopyShareUrl(shareKey);
 
   return (
     <>
@@ -51,10 +57,12 @@ export const GroupAdd: FC<Props> = ({ shareKey }) => {
           <LabelText>共有URL</LabelText>
           <TextField
             fullWidth
-            InputProps={{ readOnly: true, endAdornment: <CopyButton /> }}
+            InputProps={{
+              readOnly: true,
+              endAdornment: <CopyButton onClick={handleCopy} />,
+            }}
             {...register("urlForJoin")}
           />
-          {/*TODO: コピーボタンを押すとコピーできるようにする。 */}
         </Box>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -69,6 +77,13 @@ export const GroupAdd: FC<Props> = ({ shareKey }) => {
           戻る
         </Button>
       </Box>
+      <AlertBar
+        open={isAlertOpen}
+        handleSecondTextClick={handleCopy}
+        handleBarClose={() => setIsAlertOpen(false)}
+        text="共有URLをコピーしました。"
+        secondText="もう一度コピーする"
+      />
     </>
   );
 };
