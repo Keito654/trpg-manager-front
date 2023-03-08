@@ -24,6 +24,8 @@ export const GroupAdd: FC<Props> = ({ shareKey }) => {
   // 共有URLをコピーする処理をまとめたカスタムフックを呼び出す。
   const { handleCopy, isAlertOpen, setIsAlertOpen } = useCopyShareUrl(shareKey);
 
+  const handleBarClose = () => setIsAlertOpen(false);
+
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "column", rowGap: 8, mb: 10 }}>
@@ -49,7 +51,7 @@ export const GroupAdd: FC<Props> = ({ shareKey }) => {
             maxLength={100}
             fullWidth
             {...register("description")}
-            error={"description" in errors}
+            error={Boolean(errors.description)}
             helperText={errors.description?.message}
           />
         </Box>
@@ -80,7 +82,7 @@ export const GroupAdd: FC<Props> = ({ shareKey }) => {
       <AlertBar
         open={isAlertOpen}
         handleSecondTextClick={handleCopy}
-        handleBarClose={() => setIsAlertOpen(false)}
+        handleBarClose={handleBarClose}
         text="共有URLをコピーしました。"
         secondText="もう一度コピーする"
       />
