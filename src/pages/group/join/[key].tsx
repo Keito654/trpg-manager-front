@@ -19,36 +19,44 @@ export default function GroupJoinPage({
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const { key } = context.query;
-  console.log(key);
+  try {
+    const { key } = context.query;
+    console.log(key);
 
-  // if it is not exist key, throw 404 error
-  if (!key) {
+    // if it is not exist key, throw 404 error
+    if (!key) {
+      return {
+        notFound: true,
+      };
+    }
+
+    const data = await prisma.group.findFirst({
+      select: {
+        id: true,
+        name: true,
+        description: true,
+      },
+      where: {
+        shareKey: key as string,
+      },
+    });
+
+    if (!data) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (error) {
     return {
       notFound: true,
     };
+  } finally {
+    await prisma.$disconnect();
   }
-
-  const data = await prisma.group.findFirst({
-    select: {
-      id: true,
-      name: true,
-      description: true,
-    },
-    where: {
-      shareKey: key as string,
-    },
-  });
-
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      data,
-    },
-  };
 };

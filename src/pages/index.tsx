@@ -12,41 +12,49 @@ export default function Home({
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const supabase = createServerSupabaseClient(context);
+  try {
+    const supabase = createServerSupabaseClient(context);
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
 
-  if (!session) {
+    if (!session) {
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: false,
+        },
+      };
+    }
+
+    const data = await prisma.group.findMany({
+      select: {
+        id: true,
+        name: true,
+        description: true,
+      },
+      where: {
+        UserGroup: {
+          some: { userId: session?.user?.id },
+        },
+      },
+    });
+
+    const groupData = data.map((x) => ({
+      id: x.id,
+      groupTitle: x.name,
+      description: x.description,
+    }));
+
     return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
+      props: { data: groupData },
     };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  } finally {
+    await prisma.$disconnect();
   }
-
-  const data = await prisma.group.findMany({
-    select: {
-      id: true,
-      name: true,
-      description: true,
-    },
-    where: {
-      UserGroup: {
-        some: { userId: session?.user?.id },
-      },
-    },
-  });
-
-  const groupData = data.map((x) => ({
-    id: x.id,
-    groupTitle: x.name,
-    description: x.description,
-  }));
-
-  return {
-    props: { data: groupData },
-  };
 };

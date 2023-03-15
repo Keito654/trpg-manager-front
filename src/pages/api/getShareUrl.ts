@@ -21,6 +21,8 @@ const handler: NextApiHandler = async (req, res) => {
     res.json({ ok: true, shareKey: group.shareKey });
   } catch (error) {
     res.json({ ok: false, error });
+  } finally {
+    await prisma.$disconnect();
   }
 };
 

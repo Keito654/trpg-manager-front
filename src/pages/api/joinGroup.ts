@@ -1,7 +1,10 @@
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import prisma from "libs/initPrisma";
 import { NextApiHandler } from "next";
-import { groupRegistrationFormSchema } from "types/schema/groupRegistrationForm";
+
+type JoinGroupRequestBody = {
+  groupId: string;
+};
 
 const handler: NextApiHandler = async (req, res) => {
   try {
@@ -15,28 +18,27 @@ const handler: NextApiHandler = async (req, res) => {
         "ユーザーIDを取得できませんでした。もう一度試してください。"
       );
     }
+    console.log(req.body);
 
-    const data = await groupRegistrationFormSchema.validate(req.body);
+    const { groupId } = req.body as JoinGroupRequestBody;
 
-    const group = await prisma.group.create({
+    if (!groupId) {
+      throw new Error(
+        "グループの情報を取得できませんでした。もう一度試してください。"
+      );
+    }
+
+    const userGroup = await prisma.userGroup.create({
       data: {
-        name: data.groupTitle,
-        description: data.description,
-        shareKey: data.urlForJoin,
-        creatorId: session.user.id,
+        userId: session.user.id,
+        groupId,
       },
     });
 
-    await prisma.userGroup.create({
-      data: {
-        userId: group.creatorId,
-        groupId: group.id,
-      },
-    });
-
-    res.json({ ok: true });
+    res.status(200).json({ ok: true, userGroup });
   } catch (error) {
-    res.json({ ok: false, error });
+    console.error("Error joining group:", error);
+    res.status(500).json({ ok: false, message: "Internal Server Error" });
   } finally {
     await prisma.$disconnect();
   }
