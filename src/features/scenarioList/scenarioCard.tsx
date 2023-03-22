@@ -92,7 +92,9 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
         scenarioTitle={title}
         description={""}
         url={""}
-        readPerson={""}
+        readPerson={[""]}
+        id={""}
+        image={undefined}
       />
     </>
   );
