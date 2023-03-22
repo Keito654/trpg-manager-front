@@ -1,4 +1,4 @@
-import { useScenarioAddButtonCliker } from "./hooks/useScenarioAddButtonCliker";
+import { useScenarioAddButtonClicker } from "./hooks/useScenarioAddButtonCliker";
 import { MenuForAddAndCopy } from "./menuForAddAndCopy";
 import AddIcon from "@mui/icons-material/Add";
 import { Fab } from "@mui/material";
@@ -10,7 +10,7 @@ type Props = {
 
 export const ScenarioAddButton: FC<Props> = ({ groupId }) => {
   const { open, anchorEl, handleClick, handleClose } =
-    useScenarioAddButtonCliker();
+    useScenarioAddButtonClicker();
 
   return (
     <>

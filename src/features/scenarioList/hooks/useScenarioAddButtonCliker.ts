@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useScenarioAddButtonCliker = () => {
+export const useScenarioAddButtonClicker = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
