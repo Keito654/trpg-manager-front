@@ -1,5 +1,5 @@
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { Scenario } from "features/scenarioList/scenario";
+import { ScenarioList } from "features/scenarioList/list";
 import prisma from "libs/initPrisma";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 
@@ -7,7 +7,7 @@ export default function ScenarioPage({
   data,
   groupId,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  return <Scenario scenarioList={data} groupId={groupId} />;
+  return <ScenarioList scenarioList={data} groupId={groupId} />;
 }
 
 export const getServerSideProps = async (

@@ -1,7 +1,7 @@
+import { DetailPop } from "./detailPop";
 import { useScenarioDetailOpener } from "./hooks/useScenariDetailOpener";
 import { useScenarioUpdateOpener } from "./hooks/useScenarioUpdateOpener";
-import { ScenarioDetailPop } from "./scenarioDetailPop";
-import { ScenarioUpdatePop } from "./scenarioUpdatePop";
+import { UpdatePop } from "./updatePop";
 import {
   Card,
   CardMedia,
@@ -78,7 +78,7 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
         handleClose={handleClose}
         handleClickUpdate={handleOpenUpdate}
       />
-      <ScenarioUpdatePop
+      <UpdatePop
         open={IsUpdateOpen}
         handleClose={handleCloseUpdate}
         title={""}
@@ -86,7 +86,7 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
         description={""}
         readPerson={""}
       />
-      <ScenarioDetailPop
+      <DetailPop
         open={IsDetailOpen}
         handleClose={handleCloseDetail}
         scenarioTitle={title}

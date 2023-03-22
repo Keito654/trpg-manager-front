@@ -1,4 +1,4 @@
-import { ScenarioDetailPop as Pop } from "./scenarioDetailPop";
+import { DetailPop as Pop } from "./detailPop";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {

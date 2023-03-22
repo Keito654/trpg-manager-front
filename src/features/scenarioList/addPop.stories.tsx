@@ -1,15 +1,15 @@
-import { MenuForAddAndCopy as Pop } from "./menuForAddAndCopy";
+import { ScenarioAddPop as Pop } from "./addPop";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
-  title: "Menu",
+  title: "PopUp",
   component: Pop,
 } as ComponentMeta<typeof Pop>;
 
 const Template: ComponentStory<typeof Pop> = (args) => <Pop {...args} />;
 
-export const MenuForAddAndCopy = Template.bind({});
+export const ScenarioAddPop = Template.bind({});
 
-MenuForAddAndCopy.args = {
+ScenarioAddPop.args = {
   open: true,
 };

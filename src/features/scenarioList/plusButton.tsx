@@ -1,5 +1,5 @@
-import { useScenarioAddButtonClicker } from "./hooks/useScenarioAddButtonCliker";
-import { MenuForAddAndCopy } from "./menuForAddAndCopy";
+import { ButtonMenu } from "./buttonMenu";
+import { useScenarioAddPopOpener } from "./hooks/useScenarioAddPopOpener";
 import AddIcon from "@mui/icons-material/Add";
 import { Fab } from "@mui/material";
 import { FC } from "react";
@@ -8,9 +8,9 @@ type Props = {
   groupId: string;
 };
 
-export const ScenarioAddButton: FC<Props> = ({ groupId }) => {
+export const PlusButton: FC<Props> = ({ groupId }) => {
   const { open, anchorEl, handleClick, handleClose } =
-    useScenarioAddButtonClicker();
+    useScenarioAddPopOpener();
 
   return (
     <>
@@ -21,7 +21,7 @@ export const ScenarioAddButton: FC<Props> = ({ groupId }) => {
       >
         <AddIcon />
       </Fab>
-      <MenuForAddAndCopy
+      <ButtonMenu
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}

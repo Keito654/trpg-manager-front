@@ -12,7 +12,7 @@ type Props = {
   readPerson: string;
 };
 
-export const ScenarioUpdatePop: FC<Props> = ({
+export const UpdatePop: FC<Props> = ({
   open,
   handleClose,
   title,

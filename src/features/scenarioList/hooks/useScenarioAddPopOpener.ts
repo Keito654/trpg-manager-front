@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useScenarioAddButtonClicker = () => {
+export const useScenarioAddPopOpener = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);

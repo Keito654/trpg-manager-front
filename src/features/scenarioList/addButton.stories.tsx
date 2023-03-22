@@ -1,4 +1,4 @@
-import { ScenarioAddButton as Pop } from "./scenarioAddButton";
+import { PlusButton as Pop } from "./plusButton";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {

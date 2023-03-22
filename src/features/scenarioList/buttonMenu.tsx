@@ -1,6 +1,6 @@
+import { ScenarioAddPop } from "./addPop";
 import { useCopyShareUrl } from "./hooks/useCopyShareUrl";
 import { useScenarioCreator } from "./hooks/useScenarioCreator";
-import { ScenarioAddPop } from "./scenarioAddPop";
 import AddIcon from "@mui/icons-material/Add";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import {
@@ -20,12 +20,7 @@ type Props = {
   groupId: string;
 };
 
-export const MenuForAddAndCopy: FC<Props> = ({
-  open,
-  anchorEl,
-  onClose,
-  groupId,
-}) => {
+export const ButtonMenu: FC<Props> = ({ open, anchorEl, onClose, groupId }) => {
   const {
     isCreatePopupOpen,
     handleCreateButtonClick,

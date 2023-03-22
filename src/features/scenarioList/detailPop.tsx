@@ -8,7 +8,7 @@ type Props = {
   handleClose: () => void;
 };
 
-export const ScenarioDetailPop: FC<Props & ScenarioModel> = ({
+export const DetailPop: FC<Props & ScenarioModel> = ({
   open,
   handleClose,
   scenarioTitle,

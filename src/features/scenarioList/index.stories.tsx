@@ -1,4 +1,4 @@
-import { Scenario as Pop } from "./scenario";
+import { ScenarioList as Pop } from ".";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ScenarioModel } from "types/viewModels";
 

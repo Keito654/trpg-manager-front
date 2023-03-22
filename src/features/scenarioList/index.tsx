@@ -1,4 +1,4 @@
-import { ScenarioAddButton } from "./scenarioAddButton";
+import { PlusButton } from "./plusButton";
 import { ScenarioCard } from "./scenarioCard";
 import { TextField, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -13,7 +13,7 @@ type Props = {
 
 //TODO: 検索処理を追加する。
 
-export const Scenario: FC<Props> = ({ scenarioList, groupId }) => {
+export const ScenarioList: FC<Props> = ({ scenarioList, groupId }) => {
   return (
     <>
       <TextField
@@ -33,7 +33,7 @@ export const Scenario: FC<Props> = ({ scenarioList, groupId }) => {
       ) : (
         <Typography>シナリオがありません。</Typography>
       )}
-      <ScenarioAddButton groupId={groupId} />
+      <PlusButton groupId={groupId} />
     </>
   );
 };
