@@ -11,6 +11,8 @@ type Props = {
   groupId: string;
 };
 
+//TODO: 検索処理を追加する。
+
 export const Scenario: FC<Props> = ({ scenarioList, groupId }) => {
   return (
     <>

@@ -9,6 +9,9 @@ type Props = {
 };
 
 export const ScenarioAddPop: FC<Props> = ({ open, handleClose }) => {
+  //TODO: 画像アップロード機能を作成する。
+  //TODO: フォームバリエーションを作成する。
+  //TODO: シナリオを登録する処理を追加する。
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth={true}>
       <Box className="p-5">

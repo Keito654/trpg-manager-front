@@ -28,6 +28,10 @@ export const ScenarioCard: FC<Props> = ({ title, image = "/no-image.jpg" }) => {
   const { IsUpdateOpen, handleOpenUpdate, handleCloseUpdate } =
     useScenarioUpdateOpener();
 
+  //TODO: シナリオ更新処理を追加する。
+  //TODO: シナリオ削除処理を追加する。
+  //TODO: シナリオ詳細画面を追加する。
+
   return (
     <>
       <Card

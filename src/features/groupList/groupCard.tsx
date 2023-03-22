@@ -15,6 +15,7 @@ export const GroupCard: FC<Props> = ({ id, title, description }) => {
   const { contextMenu, handleRightClick, handleClose } = useRightClicker();
   const router = useRouter();
 
+  //TODO: グループ削除処理を追加する。
   return (
     <>
       <Card

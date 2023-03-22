@@ -14,6 +14,7 @@ declare module "@mui/material/Button" {
 export const GroupUpdate: FC<
   Pick<GroupModel, "groupTitle" | "description" | "shareKey">
 > = ({ groupTitle, description, shareKey }) => {
+  //TODO: グループ更新処理を追加する。
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "column", rowGap: 8, mb: 10 }}>
