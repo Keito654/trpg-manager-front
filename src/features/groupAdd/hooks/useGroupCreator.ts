@@ -7,6 +7,8 @@ import {
   groupRegistrationFormSchema,
 } from "types/schema/groupRegistrationForm";
 
+// TODO: React Queryを導入し、API処理を分かりやすくする。
+
 export const useGroupCreator = (shareKey: string) => {
   const { convertShareKeyToUrl } = useShareUrlConverter();
 
